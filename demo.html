@@ -1,0 +1,75 @@
+
+<!doctype html>
+<!--
+Copyright 2013 The Polymer Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+-->
+<html>
+<head>
+  <title>paper-menu-button</title>
+  <script src="../platform/platform.js"></script>
+  <link href="../core-icons/core-icons.html" rel="import">
+  <link href="../core-layout/core-layout.html" rel="import">
+  <link href="../paper-icon-button/paper-icon-button.html" rel="import">
+  <link href="../paper-shadow/paper-shadow.html" rel="import">
+  <link href="paper-menu-button.html" rel="import">
+  <style>
+    body {
+			margin: 0;
+			font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      background: #f7f7f7;
+    }
+
+    .toolbar {
+      background: #4555a5;
+      position: relative;
+      padding: 0.5em;
+    }
+
+    .inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: -1;
+    }
+
+    body /deep/ core-icon::shadow path {
+      fill: #fff;
+    }
+
+    paper-menu-button > div {
+      padding: 1em;
+    }
+
+  </style>
+</head>
+<body unresolved>
+
+  <paper-shadow></paper-shadow>
+
+  <core-layout class="toolbar paper-shadow-top-z-1">
+    <div class="inner paper-shadow-bottom-z-1"></div>
+    <paper-menu-button icon="menu" halign="left">
+      <div>Menu Item 1</div>
+      <div>Menu Item 2</div>
+      <div>Menu Item 3</div>
+      <div>Menu Item 4</div>
+      <div>Menu Item 5</div>
+    </paper-menu-button>
+    <div core-flex></div>
+    <paper-icon-button icon="search"></paper-icon-button>
+    <paper-menu-button icon="more-vert" halign="right">
+      <div>Refresh</div>
+      <div>Send Feedback</div>
+      <div>Settings</div>
+      <div>Help</div>
+      <div>Sign Out</div>
+    </paper-menu-button>
+  </core-layout>
+
+</body>
+</html>

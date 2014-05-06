@@ -1,0 +1,10 @@
+:host(.paper-menu-button-transition) {
+  display: none;
+  outline: none;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in;
+  transform: scale(0);
+  -webkit-transform: scale(0);
+}
+
+@import url(../core-transition/core-transition-overlay.css);

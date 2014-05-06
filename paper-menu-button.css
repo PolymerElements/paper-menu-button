@@ -1,0 +1,22 @@
+/*
+Copyright 2013 The Polymer Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+*/
+
+#menu {
+  position: fixed;
+  background: #fff;
+  border-radius: 3px;
+  margin: 0;
+}
+
+:host([halign="left"]) #menu {
+  transform-origin: 0% 0%;
+  -webkit-transform-origin: 0% 0%;
+}
+
+:host([halign="right"]) #menu {
+  transform-origin: 100% 0%;
+  -webkit-transform-origin: 100% 0%;
+}
