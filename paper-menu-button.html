@@ -22,20 +22,27 @@ Example:
  @extends paper-icon-button
 -->
 <link href="../polymer/polymer.html" rel="import">
+<link href="../core-icon/core-icon.html" rel="import">
 <link href="../core-menu/core-menu.html" rel="import">
+<link href="../paper-focusable/paper-focusable.html" rel="import">
 <link href="../paper-shadow/paper-shadow.html" rel="import">
 <link href="paper-menu-button-overlay.html" rel="import">
 <link href="paper-menu-button-transition.html" rel="import">
 
-<polymer-element name="paper-menu-button" extends="paper-icon-button" attributes="opened halign" on-tap="{{tapAction}}">
+<polymer-element name="paper-menu-button" extends="paper-focusable" attributes="src icon opened halign" on-tap="{{tapAction}}">
   <template>
     <link rel="stylesheet" href="paper-menu-button.css">
-    <paper-menu-button-overlay target="{{$.menu}}" relatedTarget="{{}}" halign="{{halign}}" opened="{{opened}}" transition="paper-menu-button-transition"></paper-menu-button-overlay>
-    <paper-shadow target="{{$.menu}}"></paper-shadow>
-    <core-menu id="menu">
-      <content></content>
-    </core-menu>
-    <shadow></shadow>
+    <paper-menu-button-overlay target="{{$.overlay}}" relatedTarget="{{}}" halign="{{halign}}" opened="{{opened}}" transition="paper-menu-button-transition-top-{{halign}}"></paper-menu-button-overlay>
+    <div id="overlay">
+      <paper-shadow target="{{$.overlayBg}}" z="0"></paper-shadow>
+      <div class="paper-menu-button-overlay-ink"></div>
+      <div id="overlayBg" class="paper-menu-button-overlay-bg">
+      </div>
+      <core-menu id="menu">
+        <content></content>
+      </core-menu>
+    </div>
+    <core-icon src="{{src}}" icon="{{icon}}"></core-icon>
   </template>
   <script>
     Polymer('paper-menu-button', {
@@ -61,6 +68,27 @@ Example:
         halign: { value: 'left', reflect: true }
 
       },
+
+      /**
+       * The URL of an image for the icon.  Should not use `icon` property
+       * if you are using this property.
+       *
+       * @attribute src
+       * @type string
+       * @default ''
+       */
+      src: '',
+      
+      /**
+       * Specifies the icon name or index in the set of icons available in
+       * the icon set.  Should not use `src` property if you are using this
+       * property.
+       *
+       * @attribute icon
+       * @type string
+       * @default ''
+       */
+      icon: '',
 
       tapAction: function() {
         if (this.disabled) {

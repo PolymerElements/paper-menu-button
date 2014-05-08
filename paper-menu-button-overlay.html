@@ -46,6 +46,13 @@ element, e.g. the button with a pulldown menu.
 
       },
 
+      updateTargetDimensions: function() {
+        this.super();
+
+        var t = this.target;
+        this.target.cachedSize = t.getBoundingClientRect();
+      },
+
       positionTarget: function() {
         if (this.relatedTarget) {
 
@@ -56,9 +63,7 @@ element, e.g. the button with a pulldown menu.
           } else if (this.halign === 'right') {
             this.target.style.right = (window.innerWidth - rect.right) + 'px';
           } else {
-            var t = this.sizingTarget || this.target;
-            var trect = t.getBoundingClientRect();
-            this.target.style.left = (rect.left - (rect.width - trect.width) / 2) + 'px';
+            this.target.style.left = (rect.left - (rect.width - this.target.cachedSize.width) / 2) + 'px';
           }
 
           this.target.style.top = rect.top + 'px';
