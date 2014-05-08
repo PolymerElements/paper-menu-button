@@ -29,10 +29,10 @@ Example:
 <link href="paper-menu-button-overlay.html" rel="import">
 <link href="paper-menu-button-transition.html" rel="import">
 
-<polymer-element name="paper-menu-button" extends="paper-focusable" attributes="src icon opened halign" on-tap="{{tapAction}}">
+<polymer-element name="paper-menu-button" extends="paper-focusable" attributes="src icon opened halign slow" on-tap="{{tapAction}}">
   <template>
     <link rel="stylesheet" href="paper-menu-button.css">
-    <paper-menu-button-overlay target="{{$.overlay}}" relatedTarget="{{}}" halign="{{halign}}" opened="{{opened}}" transition="paper-menu-button-transition-top-{{halign}}"></paper-menu-button-overlay>
+    <paper-menu-button-overlay target="{{$.overlay}}" relatedTarget="{{}}" halign="{{halign}}" opened="{{opened}}" transition="paper-menu-button-transition-top-{{halign}}{{slow ? '-slow' : ''}}"></paper-menu-button-overlay>
     <div id="overlay">
       <paper-shadow target="{{$.overlayBg}}" z="0"></paper-shadow>
       <div class="paper-menu-button-overlay-ink"></div>
@@ -89,6 +89,8 @@ Example:
        * @default ''
        */
       icon: '',
+
+      slow: false,
 
       tapAction: function() {
         if (this.disabled) {
