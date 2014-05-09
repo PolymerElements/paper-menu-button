@@ -22,10 +22,19 @@ license that can be found in the LICENSE file.
       background: #f7f7f7;
     }
 
+    .card {
+      background: #fff;
+      width: 320px;
+      height: 480px;
+      margin: 128px 96px;
+      border-radius: 3px;
+    }
+
     .toolbar {
       background: #4555a5;
       position: relative;
       padding: 0.5em;
+      border-radius: 3px 3px 0 0;
     }
 
     .inner {
@@ -37,10 +46,7 @@ license that can be found in the LICENSE file.
       z-index: -1;
     }
 
-    core-icon path {
-      fill: #fff;
-    }
-    body /deep/ core-icon::shadow path {
+    body /deep/ core-icon {
       fill: #fff;
     }
 
@@ -58,23 +64,26 @@ license that can be found in the LICENSE file.
 
   <paper-shadow></paper-shadow>
 
-  <core-layout class="toolbar paper-shadow-top-z-1">
+  <div class="card paper-shadow-top-z-1">
     <div class="inner paper-shadow-bottom-z-1"></div>
-    <paper-menu-button icon="menu" halign="left">
-      <div>Menu Item 1</div>
-      <div>Menu Item 2</div>
-      <div>Menu Item 3</div>
-    </paper-menu-button>
-    <div core-flex></div>
-    <paper-icon-button icon="search"></paper-icon-button>
-    <paper-menu-button icon="more-vert" halign="right" slow>
-      <div>Refresh</div>
-      <div>Send Feedback</div>
-      <div>Settings</div>
-      <div>Help</div>
-      <div>Sign Out</div>
-    </paper-menu-button>
-  </core-layout>
+    <core-layout class="toolbar paper-shadow-top-z-1">
+      <div class="inner paper-shadow-bottom-z-1"></div>
+      <paper-menu-button icon="menu" halign="left">
+        <div>Menu Item 1</div>
+        <div>Menu Item 2</div>
+        <div>Menu Item 3</div>
+      </paper-menu-button>
+      <div core-flex></div>
+      <paper-icon-button icon="search"></paper-icon-button>
+      <paper-menu-button icon="more-vert" halign="right" slow>
+        <div>Refresh</div>
+        <div>Send Feedback</div>
+        <div>Settings</div>
+        <div>Help</div>
+        <div>Sign Out</div>
+      </paper-menu-button>
+    </core-layout>
+  </div>
 
 </body>
 </html>
