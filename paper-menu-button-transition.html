@@ -77,7 +77,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 	      	var nodes = node.querySelector('core-menu::shadow content').getDistributedNodes().array();
 	      	var items = nodes.filter(function(n) {
-	      		return n.matches('div');
+	      		return n.nodeType === Node.ELEMENT_NODE;
 	      	});
 	      	var itemDelay = offset + (1 - offset) / 2;
 	      	var itemDuration = this.duration * (1 - itemDelay) / (items.length - 1);

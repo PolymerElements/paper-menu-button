@@ -12,6 +12,7 @@ license that can be found in the LICENSE file.
   <link href="../core-icons/core-icons.html" rel="import">
   <link href="../core-layout/core-layout.html" rel="import">
   <link href="../paper-icon-button/paper-icon-button.html" rel="import">
+  <link href="../paper-item/paper-item.html" rel="import">
   <link href="../paper-shadow/paper-shadow.html" rel="import">
   <link href="paper-menu-button.html" rel="import">
   <style>
@@ -50,14 +51,9 @@ license that can be found in the LICENSE file.
       fill: #fff;
     }
 
-    paper-menu-button > div {
-      padding: 1em;
+    body /deep/ paper-item::shadow core-icon {
+      fill: #000;
     }
-
-    paper-menu-button > div:hover {
-      background: #d9d9d9;
-    }
-
   </style>
 </head>
 <body unresolved>
@@ -69,18 +65,18 @@ license that can be found in the LICENSE file.
     <core-layout class="toolbar paper-shadow-top-z-1">
       <div class="inner paper-shadow-bottom-z-1"></div>
       <paper-menu-button icon="menu" halign="left">
-        <div>Menu Item 1</div>
-        <div>Menu Item 2</div>
-        <div>Menu Item 3</div>
+        <paper-item label="Menu Item 1"></paper-item>
+        <paper-item label="Menu Item 2"></paper-item>
+        <paper-item label="Menu Item 3"></paper-item>
       </paper-menu-button>
       <div core-flex></div>
       <paper-icon-button icon="search"></paper-icon-button>
       <paper-menu-button icon="more-vert" halign="right" slow>
-        <div>Refresh</div>
-        <div>Send Feedback</div>
-        <div>Settings</div>
-        <div>Help</div>
-        <div>Sign Out</div>
+        <paper-item label="Refresh"></paper-item>
+        <paper-item label="Send Feedback"></paper-item>
+        <paper-item label="Settings"></paper-item>
+        <paper-item label="Help"></paper-item>
+        <paper-item label="Sign Out"></paper-item>
       </paper-menu-button>
     </core-layout>
   </div>

@@ -3,10 +3,13 @@
   "private": true,
   "dependencies": {
     "polymer": "Polymer/polymer#master",
+    "core-layout": "Polymer/core-layout#master",
     "core-menu": "Polymer/core-menu#master",
     "core-overlay": "Polymer/core-overlay#master",
     "core-transition-css": "Polymer/core-transition-css#master",
     "paper-icon-button": "Polymer/paper-icon-button#master",
-    "paper-shadow": "Polymer/paper-shadow"
+    "paper-item": "Polymer/paper-item#master",
+    "paper-shadow": "Polymer/paper-shadow",
+    "paper-toolbar": "Polymer/paper-toolbar"
   }
 }
