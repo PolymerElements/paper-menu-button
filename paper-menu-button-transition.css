@@ -6,19 +6,13 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt */
 
 :host(.paper-menu-button-transition) {
-  display: none;
   outline: none;
+  opacity: 0;
   transition: transform 0.2s ease-in-out, opacity 0.2s ease-in;
   -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in;
 }
 
-:host(.paper-menu-button-revealed) {
-  display: block;
-  opacity: 0;
-}
-
-:host(.paper-menu-button-revealed.paper-menu-button-opened) {
-  display: block;
+:host(.paper-menu-button-transition.paper-menu-button-opened) {
   opacity: 1;
   transform: none;
   -webkit-transform: none;
