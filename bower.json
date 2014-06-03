@@ -3,13 +3,16 @@
   "private": true,
   "dependencies": {
     "polymer": "Polymer/polymer#master",
-    "core-layout": "Polymer/core-layout#master",
+    "core-animation": "Polymer/core-animation#master",
+    "core-icon": "Polymer/core-icon#master",
+    "core-icons": "Polymer/core-icons#master",
     "core-menu": "Polymer/core-menu#master",
     "core-overlay": "Polymer/core-overlay#master",
-    "core-transition-css": "Polymer/core-transition-css#master",
+    "core-transition": "Polymer/core-transition#master",
+    "paper-focusable": "Polymer/paper-focusable#master",
     "paper-icon-button": "Polymer/paper-icon-button#master",
     "paper-item": "Polymer/paper-item#master",
-    "paper-shadow": "Polymer/paper-shadow",
+    "paper-shadow": "Polymer/paper-shadow#master",
     "paper-toolbar": "Polymer/paper-toolbar"
   }
 }

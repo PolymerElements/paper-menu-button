@@ -10,7 +10,6 @@ license that can be found in the LICENSE file.
   <title>paper-menu-button</title>
   <script src="../platform/platform.js"></script>
   <link href="../core-icons/core-icons.html" rel="import">
-  <link href="../core-layout/core-layout.html" rel="import">
   <link href="../paper-icon-button/paper-icon-button.html" rel="import">
   <link href="../paper-item/paper-item.html" rel="import">
   <link href="../paper-shadow/paper-shadow.html" rel="import">
@@ -62,14 +61,14 @@ license that can be found in the LICENSE file.
 
   <div class="card paper-shadow-top-z-1">
     <div class="inner paper-shadow-bottom-z-1"></div>
-    <core-layout class="toolbar paper-shadow-top-z-1">
+    <div layout horizontal class="toolbar paper-shadow-top-z-1">
       <div class="inner paper-shadow-bottom-z-1"></div>
       <paper-menu-button icon="menu" halign="left">
         <paper-item label="Menu Item 1"></paper-item>
         <paper-item label="Menu Item 2"></paper-item>
         <paper-item label="Menu Item 3"></paper-item>
       </paper-menu-button>
-      <div core-flex></div>
+      <div flex></div>
       <paper-icon-button icon="search"></paper-icon-button>
       <paper-menu-button icon="more-vert" halign="right" slow>
         <paper-item label="Refresh"></paper-item>
