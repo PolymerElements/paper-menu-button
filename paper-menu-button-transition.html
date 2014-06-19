@@ -7,7 +7,7 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 <!--
-@group Quantum Paper Elements
+@group Paper Elements
 @class paper-menu-button-transition
 @extends core-transition-css
 -->
@@ -75,6 +75,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 	      		fill: 'forwards'
 	      	}));
 
+          console.log('node', node);
 	      	var nodes = node.querySelector('core-menu::shadow content').getDistributedNodes().array();
 	      	var items = nodes.filter(function(n) {
 	      		return n.nodeType === Node.ELEMENT_NODE;
