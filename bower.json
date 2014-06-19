@@ -12,7 +12,6 @@
     "paper-focusable": "Polymer/paper-focusable#master",
     "paper-icon-button": "Polymer/paper-icon-button#master",
     "paper-item": "Polymer/paper-item#master",
-    "paper-shadow": "Polymer/paper-shadow#master",
-    "paper-toolbar": "Polymer/paper-toolbar"
+    "paper-shadow": "Polymer/paper-shadow#master"
   }
 }
