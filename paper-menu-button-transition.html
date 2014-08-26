@@ -105,6 +105,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           this.player.onfinish = function() {
             this.fire('core-transitionend', this, node);
           }.bind(this);
+
+        } else {
+          this.listenOnce(node, 'transitionend', function() {
+            this.fire('core-transitionend', this, node);
+          }.bind(this));
         }
       },
 
