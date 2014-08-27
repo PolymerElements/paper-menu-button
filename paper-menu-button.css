@@ -48,6 +48,8 @@ core-icon::shadow svg {
 #menu {
   position: fixed;
   background-color: transparent;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .paper-menu-button-overlay-ink {
