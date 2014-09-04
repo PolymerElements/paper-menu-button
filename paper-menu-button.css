@@ -80,3 +80,9 @@ core-icon::shadow svg {
 	border-radius: 3px;
   opacity: 0;
 }
+
+.paper-menu-button-menu-container {
+  overflow: auto;
+  max-height: 100%;
+  max-width: 100%;
+}
