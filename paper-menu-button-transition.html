@@ -78,10 +78,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             fill: 'forwards'
           }));
 
-          var nodes = window.ShadowDOMPolyfill ? Platform.queryAllShadows(node.querySelector('core-menu'), 'content').getDistributedNodes() : node.shadowRoot.querySelector('core-menu::shadow content').getDistributedNodes().array();
-          var items = nodes.filter(function(n) {
-            return n.nodeType === Node.ELEMENT_NODE;
-          });
+          var items = node.querySelector('#menu').items;
           var itemDelay = offset + (1 - offset) / 2;
           var itemDuration = this.duration * (1 - itemDelay) / items.length;
           items.forEach(function(item, i) {
@@ -91,7 +88,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               }, {
                 'opacity': 1
               }], {
-                delay: this.duration * itemDelay + itemDuration * (i - 2),
+                delay: this.duration * itemDelay + itemDuration * (i + 2),
                 duration: itemDuration,
                 fill: 'both'
               }));
