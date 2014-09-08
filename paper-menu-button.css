@@ -71,6 +71,11 @@ core-icon::shadow svg {
 	right: 0;
 }
 
+:host([valign="bottom"]) .paper-menu-button-overlay-ink {
+  top: auto;
+  bottom: 0;
+}
+
 .paper-menu-button-overlay-bg {
 	position: absolute;
 	top: 0;

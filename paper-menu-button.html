@@ -84,7 +84,7 @@ paper-menu-button:shadow .paper-menu-button-overlay-ink {
 
     <core-icon src="{{src}}" icon="{{icon}}"></core-icon>
 
-    <core-dropdown id="dropdown" relatedTarget="{{}}" opened="{{opened}}" halign="{{halign}}" valign="{{valign}}" transition="paper-menu-button-transition-top-{{halign}}{{slow ? '-slow' : ''}}" on-core-transitionend="{{transitionEndAction}}">
+    <core-dropdown id="dropdown" relatedTarget="{{}}" opened="{{opened}}" halign="{{halign}}" valign="{{valign}}" transition="paper-menu-button-transition-{{valign}}-{{halign}}{{slow ? '-slow' : ''}}" on-core-transitionend="{{transitionEndAction}}">
 
       <paper-shadow id="shadow" z="0" target="{{$.dropdown}}"></paper-shadow>
 
