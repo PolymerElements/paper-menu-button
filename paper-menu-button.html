@@ -85,7 +85,7 @@ To change the color of the ripple effect:
 
     <core-dropdown id="dropdown" relatedTarget="{{}}" opened="{{opened}}" halign="{{halign}}" valign="{{valign}}" transition="{{noTransition ? '' : transition}}" on-core-transitionend="{{transitionEndAction}}">
 
-      <paper-shadow id="shadow" z="1" target="{{$.dropdown}}"></paper-shadow>
+      <paper-shadow id="shadow" fit></paper-shadow>
 
       <div class="paper-menu-button-overlay-ink"></div>
       <div id="overlayBg" class="paper-menu-button-overlay-bg"></div>
@@ -175,12 +175,12 @@ To change the color of the ripple effect:
         this.super();
         this.toggle();
         if (this.opened && !this.noTransition) {
-          this.$.shadow.z = 0;
+          this.$.shadow.setZ(0);
         }
       },
 
       transitionEndAction: function() {
-        this.$.shadow.z = 1;
+        this.$.shadow.setZ(1);
       },
 
       activateAction: function() {
