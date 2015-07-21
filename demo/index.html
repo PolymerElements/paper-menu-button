@@ -1,6 +1,7 @@
 <!doctype html>
 <!--
-Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
 This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
 The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
 The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
@@ -17,194 +18,169 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <title>paper-menu-button</title>
 
-  <script src="../webcomponentsjs/webcomponents.js"></script>
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
-  <link href="../core-collapse/core-collapse.html" rel="import">
-  <link href="../core-icons/core-icons.html" rel="import">
-  <link href="../core-menu/core-menu.html" rel="import">
-  <link href="../paper-button/paper-button.html" rel="import">
-  <link href="../paper-dropdown/paper-dropdown.html" rel="import">
-  <link href="../paper-icon-button/paper-icon-button.html" rel="import">
-  <link href="../paper-item/paper-item.html" rel="import">
+  <link rel="import" href="../../iron-icons/iron-icons.html">
+  <link rel="import" href="../../iron-icon/iron-icon.html">
+  <link rel="import" href="../../iron-image/iron-image.html">
+  <link rel="import" href="../../paper-menu/paper-menu.html">
+  <link rel="import" href="../../paper-item/paper-item.html">
+  <link rel="import" href="../../paper-button/paper-button.html">
+  <link rel="import" href="../../paper-icon-button/paper-icon-button.html">
+  <link rel="import" href="../../paper-styles/demo-pages.html">
 
-  <link href="paper-menu-button.html" rel="import">
+  <link rel="import" href="../paper-menu-button.html">
 
-  <style shim-shadowdom>
-    body {
-      font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
-      font-size: 14px;
-      margin: 0;
-      padding: 24px;
-      -webkit-tap-highlight-color: rgba(0,0,0,0);
-      -webkit-touch-callout: none;
+  <style>
+    paper-button {
+      display: block;
+      background: #4285f4;
+      color: #fff;
     }
 
-    section {
-      padding: 20px 0;
+    paper-menu {
+      display: block;
     }
 
-    section > div {
-      padding: 14px;
-      font-size: 16px;
+    paper-menu-button {
+      margin: auto;
     }
 
-    paper-item {
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
+    iron-image {
+      padding: 1em;
     }
 
-    html /deep/ core-collapse {
-      border: 1px solid #ccc;
-      padding: 8px;
+    .item {
+      max-width: 300px;
     }
 
-    .constrained-height {
-      height: 150px;
+    .horizontal-section {
+      text-align: center;
     }
-
-    .colored {
-      color: #0f9d58;
-    }
-
-    .dropdown.colored::shadow #ripple,
-    .dropdown.colored::shadow #background {
-      border: 1px solid #0f9d58;
-      background-color: #b7e1cd;
-    }
-
   </style>
 
 </head>
 <body>
 
-  <template is="auto-binding">
 
-    <section>
+  <template id="Demo" is="dom-bind">
 
-      <div>Absolutely positioned menu buttons</div>
-
-      <paper-menu-button>
-        <paper-icon-button icon="menu" noink></paper-icon-button>
-        <paper-dropdown class="dropdown">
-          <core-menu class="menu">
-            <template repeat="{{pastries}}">
-              <paper-item>{{}}</paper-item>
-            </template>
-          </core-menu>
-        </paper-dropdown>
-      </paper-menu-button>
-
-      <paper-menu-button>
-        <paper-icon-button icon="menu"></paper-icon-button>
-        <paper-dropdown class="dropdown" transition="">
-          <core-menu class="menu">
-            <paper-item>No Transition</paper-item>
-            <template repeat="{{pastries}}">
-              <paper-item>{{}}</paper-item>
-            </template>
-          </core-menu>
-        </paper-dropdown>
-      </paper-menu-button>
-
-      <paper-menu-button disabled>
-        <paper-icon-button icon="menu"></paper-icon-button>
-        <paper-dropdown class="dropdown">
-          <core-menu>
-            <paper-item>Should not see this</paper-item>
-          </core-menu>
-        </paper-dropdown>
-      </paper-menu-button>
-
-      <br><br>
-
-      <paper-menu-button>
-        <paper-button noink>
-          <core-icon icon="add"></core-icon>
-          <span style="vertical-align:middle;">add</span>
-        </paper-button>
-        <paper-dropdown class="dropdown">
-          <core-menu class="menu">
-            <template repeat="{{pastries}}">
-              <paper-item>{{}}</paper-item>
-            </template>
-          </core-menu>
-        </paper-dropdown>
-      </paper-menu-button>
-
-    </section>
-
-    <section>
-
-      <div>Layered menu buttons</div>
-
-      <button onclick="document.getElementById('collapse').toggle()">toggle core-collapse</button>
-
-      <br>
-
-      <core-collapse id="collapse">
-
-        <paper-menu-button>
-          <paper-icon-button icon="menu"></paper-icon-button>
-          <paper-dropdown layered class="dropdown">
-            <core-menu class="menu">
-              <template repeat="{{pastries}}">
-                <paper-item>{{}}</paper-item>
+    <div class="horizontal-section-container">
+      <div>
+        <h4>Paper Icon Button + Paper Menu</h4>
+        <div class="horizontal-section">
+          <paper-menu-button>
+            <paper-icon-button icon="menu" class="dropdown-trigger"></paper-icon-button>
+            <paper-menu class="dropdown-content">
+              <template is="dom-repeat" items="[[letters]]" as="letter">
+                <paper-item>[[letter]]</paper-item>
               </template>
-            </core-menu>
-          </paper-dropdown>
-        </paper-menu-button>
+            </paper-menu>
+          </paper-menu-button>
+        </div>
+      </div>
+    </div>
 
-      </core-collapse>
+    <div class="horizontal-section-container">
+      <div>
+        <h4>Disabled</h4>
+        <div class="horizontal-section">
+          <paper-menu-button disabled>
+            <paper-icon-button icon="menu" class="dropdown-trigger"></paper-icon-button>
+            <paper-menu class="dropdown-content">
+              <template is="dom-repeat" items="[[letters]]" as="letter">
+                <paper-item>[[letter]]</paper-item>
+              </template>
+            </paper-menu>
+          </paper-menu-button>
+        </div>
+      </div>
+    </div>
 
-    </section>
+    <div class="horizontal-section-container">
+      <div>
+        <h4>Alternate Alignment</h4>
+        <div class="horizontal-section">
+          <paper-menu-button vertical-align="bottom" horizontal-align="right">
+            <paper-icon-button icon="menu" class="dropdown-trigger"></paper-icon-button>
+            <paper-menu class="dropdown-content">
+              <template is="dom-repeat" items="[[letters]]" as="letter">
+                <paper-item>[[letter]]</paper-item>
+              </template>
+            </paper-menu>
+          </paper-menu-button>
+        </div>
+      </div>
+    </div>
 
-    <section>
+    <div class="horizontal-section-container">
+      <div>
+        <h4>Alternate Button</h4>
+        <div class="horizontal-section">
+          <paper-menu-button>
+            <paper-button class="dropdown-trigger" raised>
+              <iron-icon icon="check"></iron-icon>
+              <span>Dinosaurs</span>
+            </paper-button>
+            <paper-menu class="dropdown-content">
+              <template is="dom-repeat" items="[[dinosaurs]]" as="dinosaur">
+                <paper-item>[[dinosaur]]</paper-item>
+              </template>
+            </paper-menu>
+          </paper-menu-button>
+        </div>
+      </div>
+    </div>
 
-      <div>Custom styling</div>
-
-      <paper-menu-button label="Constrained height">
-        <paper-icon-button icon="menu"></paper-icon-button>
-        <paper-dropdown class="dropdown constrained-height">
-          <core-menu class="menu">
-            <template repeat="{{pastries}}">
-              <paper-item>{{}}</paper-item>
-            </template>
-          </core-menu>
-        </paper-dropdown>
-      </paper-menu-button>
-
-      <paper-menu-button label="Colored">
-        <paper-icon-button icon="menu" class="colored"></paper-icon-button>
-        <paper-dropdown class="dropdown colored">
-          <core-menu class="menu">
-            <template repeat="{{pastries}}">
-              <paper-item>{{}}</paper-item>
-            </template>
-          </core-menu>
-        </paper-dropdown>
-      </paper-menu-button>
-
-    </section>
-
+    <div class="horizontal-section-container">
+      <div>
+        <h4>Alternate Content</h4>
+        <div class="horizontal-section">
+          <paper-menu-button vertical-align="bottom">
+            <paper-icon-button class="dropdown-trigger" icon="polymer"></paper-icon-button>
+            <iron-image class="dropdown-content" src="../../iron-image/demo/polymer.svg"></iron-image>
+          </paper-menu-button>
+        </div>
+      </div>
+    </div>
   </template>
 
   <script>
-
-    scope = document.querySelector('template[is=auto-binding]');
-
-    scope.pastries = [
-      'Apple fritter',
-      'Croissant',
-      'Donut',
-      'Financier',
-      'Jello',
-      'Madeleine',
-      'Pound cake',
-      'Pretzel',
-      'Sfogliatelle'
+    Demo.letters = [
+      'alpha',
+      'beta',
+      'gamma',
+      'delta',
+      'epsilon'
     ];
-
+    Demo.dinosaurs = [
+      'allosaurus',
+      'brontosaurus',
+      'carcharodontosaurus',
+      'diplodocus',
+      'ekrixinatosaurus',
+      'fukuiraptor',
+      'gallimimus',
+      'hadrosaurus',
+      'iguanodon',
+      'jainosaurus',
+      'kritosaurus',
+      'liaoceratops',
+      'megalosaurus',
+      'nemegtosaurus',
+      'ornithomimus',
+      'protoceratops',
+      'quetecsaurus',
+      'rajasaurus',
+      'stegosaurus',
+      'triceratops',
+      'utahraptor',
+      'vulcanodon',
+      'wannanosaurus',
+      'xenoceratops',
+      'yandusaurus',
+      'zephyrosaurus'
+    ];
   </script>
 
 </body>
