@@ -125,13 +125,13 @@ Custom property | Description | Default
       /**
        * Fired when the dropdown opens.
        *
-       * @event paper-open
+       * @event paper-dropdown-open
        */
 
       /**
        * Fired when the dropdown closes.
        *
-       * @event paper-close
+       * @event paper-dropdown-close
        */
 
       behaviors: [
@@ -310,9 +310,9 @@ Custom property | Description | Default
        */
       _openedChanged: function(opened, oldOpened) {
         if (opened) {
-          this.fire('paper-open');
+          this.fire('paper-dropdown-open');
         } else if (oldOpened != null) {
-          this.fire('paper-close');
+          this.fire('paper-dropdown-close');
         }
       },
 
