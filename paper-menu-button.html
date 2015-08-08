@@ -205,7 +205,7 @@ Custom property | Description | Default
          * Set to true to disable automatically closing the dropdown after
          * a selection has been made.
          */
-        ignoreActivate: {
+        ignoreSelect: {
           type: Boolean,
           value: false
         },
@@ -277,7 +277,7 @@ Custom property | Description | Default
       },
 
       listeners: {
-        'iron-activate': '_onIronActivate'
+        'iron-select': '_onIronSelect'
       },
 
       /**
@@ -300,14 +300,14 @@ Custom property | Description | Default
       },
 
       /**
-       * When an `iron-activate` event is received, the dropdown should
+       * When an `iron-select` event is received, the dropdown should
        * automatically close on the assumption that a value has been chosen.
        *
        * @param {CustomEvent} event A CustomEvent instance with type
-       * set to `"iron-activate"`.
+       * set to `"iron-select"`.
        */
-      _onIronActivate: function(event) {
-        if (!this.ignoreActivate) {
+      _onIronSelect: function(event) {
+        if (!this.ignoreSelect) {
           this.close();
         }
       },
