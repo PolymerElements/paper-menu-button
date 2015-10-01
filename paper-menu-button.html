@@ -102,6 +102,7 @@ Custom property | Description | Default
     <iron-dropdown
       id="dropdown"
       opened="{{opened}}"
+      manual-focus-content="[[manualFocusContent]]"
       horizontal-align="[[horizontalAlign]]"
       vertical-align="[[verticalAlign]]"
       horizontal-offset="[[horizontalOffset]]"
@@ -139,6 +140,10 @@ Custom property | Description | Default
         Polymer.IronA11yKeysBehavior,
         Polymer.IronControlState
       ],
+
+      hostAttributes: {
+        tabindex:0
+      } ,
 
       properties: {
 
@@ -208,6 +213,17 @@ Custom property | Description | Default
          * a selection has been made.
          */
         ignoreSelect: {
+          type: Boolean,
+          value: false
+        },
+
+        /**
+         * By default, the dropdown will automatically focus its content upon
+         * opening. Set this to true if you want to override this, and wait
+         * until an up/down arrow or tab is pressed to set the focused item
+         * in the dropdown.
+         */
+        manualFocusContent: {
           type: Boolean,
           value: false
         },
@@ -290,6 +306,10 @@ Custom property | Description | Default
         'iron-select': '_onIronSelect'
       },
 
+      keyBindings: {
+        'up down': '_arrowKeyHandler'
+      },
+
       /**
        * The content element that is contained by the menu button, if any.
        */
@@ -304,6 +324,12 @@ Custom property | Description | Default
       open: function() {
         if (this.disabled) {
           return;
+        }
+
+        // Change the scrollLockTarget to this element, so that we can manually
+        // focus the content when an up/down arrow is pressed.
+        if (this.manualFocusContent) {
+          this.$.dropdown._scrollLockTarget = this;
         }
 
         this.$.dropdown.open();
@@ -344,6 +370,7 @@ Custom property | Description | Default
           // cause the focus target for the `iron-dropdown` to be updated as
           // necessary:
           this._dropdownContent = this.contentElement;
+          this.$.dropdown.blur();
           this.fire('paper-dropdown-open');
         } else if (oldOpened != null) {
           this.fire('paper-dropdown-close');
@@ -360,6 +387,17 @@ Custom property | Description | Default
         Polymer.IronControlState._disabledChanged.apply(this, arguments);
         if (disabled && this.opened) {
           this.close();
+        }
+      },
+
+      _arrowKeyHandler: function(event) {
+        if (!this.manualFocusContent)
+          return;
+
+        // If the dropdown is opened but hasn't been focused, focus it.
+        // Note: this is very broken in the shadow DOM 
+        if (this.$.dropdown.opened && !this.$.dropdown.focused) {
+          this.$.dropdown._focusContent();
         }
       }
     });
