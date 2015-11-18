@@ -52,7 +52,7 @@ Custom property | Description | Default
 `--paper-menu-button` | Mixin applied to the paper-menu-button | `{}`
 `--paper-menu-button-disabled` | Mixin applied to the paper-menu-button when disabled | `{}`
 `--paper-menu-button-dropdown` | Mixin applied to the paper-menu-button dropdown | `{}`
-
+`--paper-menu-button-content` | Mixin applied to the paper-menu-button content | `{}`
 
 
 
