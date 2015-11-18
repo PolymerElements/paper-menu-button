@@ -54,7 +54,7 @@ Custom property | Description | Default
 `--paper-menu-button` | Mixin applied to the paper-menu-button | `{}`
 `--paper-menu-button-disabled` | Mixin applied to the paper-menu-button when disabled | `{}`
 `--paper-menu-button-dropdown` | Mixin applied to the paper-menu-button dropdown | `{}`
-
+`--paper-menu-button-content` | Mixin applied to the paper-menu-button content | `{}`
 
 @hero hero.svg
 @demo demo/index.html
@@ -90,11 +90,14 @@ Custom property | Description | Default
       margin-top: 20px;
     }
 
-    paper-material {
+    iron-dropdown {
+      @apply(--paper-menu-button-dropdown);
+    }
+
+    .dropdown-content {
       border-radius: 2px;
       background-color: var(--paper-menu-button-dropdown-background, --primary-background-color);
-
-      @apply(--paper-menu-button-dropdown);
+      @apply(--paper-menu-button-content);
     }
   </style>
   <template>
