@@ -180,7 +180,8 @@ Custom property | Description | Default
         /**
          * A pixel value that will be added to the position calculated for the
          * given `horizontalAlign`. Use a negative value to offset to the
-         * left, or a positive value to offset to the right.
+         * left, or a positive value to offset to the right. If horizontalAlign 
+         * is configured to 'left' then the offset direction is inversed.
          */
         horizontalOffset: {
           type: Number,
@@ -191,7 +192,8 @@ Custom property | Description | Default
         /**
          * A pixel value that will be added to the position calculated for the
          * given `verticalAlign`. Use a negative value to offset towards the
-         * top, or a positive value to offset towards the bottom.
+         * top, or a positive value to offset towards the bottom. If verticalAlign 
+         * is configured to 'bottom' then the offset direction is inversed.
          */
         verticalOffset: {
           type: Number,
