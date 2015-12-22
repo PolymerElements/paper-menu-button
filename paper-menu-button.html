@@ -115,7 +115,7 @@ Custom property | Description | Default
       close-animation-config="[[closeAnimationConfig]]"
       no-animations="[[noAnimations]]"
       focus-target="[[_dropdownContent]]">
-      <paper-material class="dropdown-content">
+      <paper-material elevation="[[elevation]]" class="dropdown-content">
         <content id="content" select=".dropdown-content"></content>
       </paper-material>
     </iron-dropdown>
@@ -197,6 +197,21 @@ Custom property | Description | Default
           type: Number,
           value: 0,
           notify: true
+        },
+
+        /**
+         * The z-depth of the `dropdown-content`, from 0-5. Setting to 0 will remove the
+         * shadow, and each increasing number greater than 0 will be "deeper"
+         * than the last.
+         *
+         * @attribute elevation
+         * @type number
+         * @default 1
+         */
+        elevation: {
+          type: Number,
+          reflectToAttribute: true,
+          value: 1
         },
 
         /**
