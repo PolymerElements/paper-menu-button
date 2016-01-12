@@ -34,7 +34,7 @@
     "test-fixture": "polymerelements/test-fixture#^1.0.0",
     "iron-test-helpers": "polymerelements/iron-test-helpers#^1.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
-    "web-component-tester": "*",
+    "web-component-tester": "^4.0.0",
     "paper-menu": "polymerelements/paper-menu#^1.0.0",
     "paper-icon-button": "polymerelements/paper-icon-button#^1.0.0",
     "iron-icons": "polymerelements/iron-icons#^1.0.0",
