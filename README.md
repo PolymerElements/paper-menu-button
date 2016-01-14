@@ -52,7 +52,7 @@ The following custom properties and mixins are also available for styling:
 
 | Custom property | Description | Default |
 | --- | --- | --- |
-| `--paper-menu-button-dropdown-background` | Background color of the paper-menu-button dropdown | `#fff` |
+| `--paper-menu-button-dropdown-background` | Background color of the paper-menu-button dropdown | `--primary-background-color` |
 | `--paper-menu-button` | Mixin applied to the paper-menu-button | `{}` |
 | `--paper-menu-button-disabled` | Mixin applied to the paper-menu-button when disabled | `{}` |
 | `--paper-menu-button-dropdown` | Mixin applied to the paper-menu-button dropdown | `{}` |
