@@ -114,6 +114,7 @@ Custom property | Description | Default
       open-animation-config="[[openAnimationConfig]]"
       close-animation-config="[[closeAnimationConfig]]"
       no-animations="[[noAnimations]]"
+      allow-outside-scroll="[[allowOutsideScroll]]"
       focus-target="[[_dropdownContent]]">
       <paper-material class="dropdown-content">
         <content id="content" select=".dropdown-content"></content>
@@ -204,6 +205,17 @@ Custom property | Description | Default
          * dropdown.
          */
         noAnimations: {
+          type: Boolean,
+          value: false
+        },
+
+        /**
+         * By default, the dropdown will constrain scrolling on the page
+         * to itself when opened.
+         * Set to true in order to prevent scroll from being constrained
+         * to the dropdown when it opens.
+         */
+        allowOutsideScroll: {
           type: Boolean,
           value: false
         },
