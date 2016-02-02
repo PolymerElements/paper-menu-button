@@ -83,6 +83,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <div class="horizontal-section-container">
       <div>
+        <h4>Paper Icon Button + Paper Menu without autofocus</h4>
+        <div class="horizontal-section">
+          <paper-menu-button manual-focus-content>
+            <paper-icon-button icon="menu" class="dropdown-trigger" alt="menu"></paper-icon-button>
+            <paper-menu class="dropdown-content">
+              <template is="dom-repeat" items="[[letters]]" as="letter">
+                <paper-item>[[letter]]</paper-item>
+              </template>
+            </paper-menu>
+          </paper-menu-button>
+        </div>
+      </div>
+    </div>
+
+    <div class="horizontal-section-container">
+      <div>
         <h4>Paper Menu with multi selection</h4>
         <div class="horizontal-section">
           <paper-menu-button ignore-select>
@@ -158,7 +174,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </paper-menu-button>
         </div>
       </div>
-    </div>
+    </div> 
   </template>
 
   <script>
