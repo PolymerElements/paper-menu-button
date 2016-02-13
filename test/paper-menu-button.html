@@ -54,37 +54,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         expect(contentRect.width).to.be.equal(0);
         expect(contentRect.height).to.be.equal(0);
 
-        MockInteractions.tap(trigger);
-
-        Polymer.Base.async(function() {
-          contentRect = content.getBoundingClientRect();
-
+        menuButton.addEventListener('paper-dropdown-open', function() {
           expect(menuButton.opened).to.be.equal(true);
-
-          expect(contentRect.width).to.be.greaterThan(0);
-          expect(contentRect.height).to.be.greaterThan(0);
           done();
         });
+
+        MockInteractions.tap(trigger);
       });
 
       test('closes when trigger is clicked again', function(done) {
-        MockInteractions.tap(trigger);
-
-        Polymer.Base.async(function() {
-
-          MockInteractions.tap(trigger);
-
-          Polymer.Base.async(function() {
-            var contentRect = content.getBoundingClientRect();
-
+        menuButton.addEventListener('paper-dropdown-open', function() {
+          menuButton.addEventListener('paper-dropdown-close', function() {
             expect(menuButton.opened).to.be.equal(false);
-
-            expect(contentRect.width).to.be.equal(0);
-            expect(contentRect.height).to.be.equal(0);
-
             done();
-          }, Polymer.PaperMenuButton.MAX_ANIMATION_TIME_MS);
-        }, 100);
+          });
+          debugger;
+          MockInteractions.tap(trigger);
+        });
+
+        MockInteractions.tap(trigger);
       });
 
       test('closes when disabled while open', function() {

@@ -103,7 +103,7 @@ Custom property | Description | Default
       }
     </style>
 
-    <div id="trigger" on-tap="open">
+    <div id="trigger" on-tap="toggle">
       <content select=".dropdown-trigger"></content>
     </div>
 
@@ -302,6 +302,17 @@ Custom property | Description | Default
          */
         get contentElement() {
           return Polymer.dom(this.$.content).getDistributedNodes()[0];
+        },
+
+        /**
+         * Toggles the drowpdown content between opened and closed.
+         */
+        toggle: function() {
+          if (this.opened) {
+            this.close();
+          } else {
+            this.open();
+          }
         },
 
         /**
