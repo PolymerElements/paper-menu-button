@@ -68,10 +68,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             expect(menuButton.opened).to.be.equal(false);
             done();
           });
-          debugger;
-          MockInteractions.tap(trigger);
-        });
 
+          Polymer.Base.async(function() {
+            MockInteractions.tap(trigger);
+          });
+        });
+        
         MockInteractions.tap(trigger);
       });
 
