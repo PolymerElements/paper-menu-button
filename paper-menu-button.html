@@ -103,7 +103,7 @@ Custom property | Description | Default
       }
     </style>
 
-    <div id="trigger" on-tap="open">
+    <div id="trigger" on-tap="toggle">
       <content select=".dropdown-trigger"></content>
     </div>
 
@@ -117,7 +117,8 @@ Custom property | Description | Default
       open-animation-config="[[openAnimationConfig]]"
       close-animation-config="[[closeAnimationConfig]]"
       no-animations="[[noAnimations]]"
-      focus-target="[[_dropdownContent]]">
+      focus-target="[[_dropdownContent]]"
+      on-iron-overlay-canceled="__onIronOverlayCanceled">
       <paper-material class="dropdown-content">
         <content id="content" select=".dropdown-content"></content>
       </paper-material>
@@ -305,6 +306,17 @@ Custom property | Description | Default
         },
 
         /**
+         * Toggles the drowpdown content between opened and closed.
+         */
+        toggle: function() {
+          if (this.opened) {
+            this.close();
+          } else {
+            this.open();
+          }
+        },
+
+        /**
          * Make the dropdown content appear as an overlay positioned relative
          * to the dropdown trigger.
          */
@@ -367,6 +379,17 @@ Custom property | Description | Default
           Polymer.IronControlState._disabledChanged.apply(this, arguments);
           if (disabled && this.opened) {
             this.close();
+          }
+        },
+
+        __onIronOverlayCanceled: function(event) {
+          var uiEvent = event.detail;
+          var target = Polymer.dom(uiEvent).rootTarget;
+          var trigger = this.$.trigger;
+          var path = Polymer.dom(uiEvent).path;
+
+          if (path.indexOf(trigger) > -1) {
+            event.preventDefault();
           }
         }
       });
