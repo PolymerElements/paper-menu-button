@@ -117,7 +117,8 @@ Custom property | Description | Default
       open-animation-config="[[openAnimationConfig]]"
       close-animation-config="[[closeAnimationConfig]]"
       no-animations="[[noAnimations]]"
-      focus-target="[[_dropdownContent]]">
+      focus-target="[[_dropdownContent]]"
+      on-iron-overlay-canceled="__onIronOverlayCanceled">
       <paper-material class="dropdown-content">
         <content id="content" select=".dropdown-content"></content>
       </paper-material>
@@ -378,6 +379,17 @@ Custom property | Description | Default
           Polymer.IronControlState._disabledChanged.apply(this, arguments);
           if (disabled && this.opened) {
             this.close();
+          }
+        },
+
+        __onIronOverlayCanceled: function(event) {
+          var uiEvent = event.detail;
+          var target = Polymer.dom(uiEvent).rootTarget;
+          var trigger = this.$.trigger;
+          var path = Polymer.dom(uiEvent).path;
+
+          if (path.indexOf(trigger) > -1) {
+            event.preventDefault();
           }
         }
       });
