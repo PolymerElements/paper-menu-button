@@ -91,6 +91,14 @@ Custom property | Description | Default
         margin-top: 20px;
       }
 
+      :host([vertical-align="top"][show-content]) paper-material {
+        margin-top: 43px;
+      }
+
+      :host([vertical-align="bottom"][show-content]) paper-material {
+        margin-bottom: 43px;
+      }
+
       iron-dropdown {
         @apply(--paper-menu-button-dropdown);
       }
@@ -110,6 +118,7 @@ Custom property | Description | Default
     <iron-dropdown
       id="dropdown"
       opened="{{opened}}"
+      no-auto-focus="[[noAutoFocus]]"
       horizontal-align="[[horizontalAlign]]"
       vertical-align="[[verticalAlign]]"
       horizontal-offset="[[horizontalOffset]]"
@@ -286,6 +295,24 @@ Custom property | Description | Default
            */
           _dropdownContent: {
             type: Object
+          },
+          /**
+           * Set to true to keep focus on menu button element content.
+           * For example input in paper-dropdown-menu if filtering is needed. This attribute doesn't manage visibility
+           * button element content.
+           */
+          noAutoFocus: {
+            type: Boolean,
+            value: false,
+            reflectToAttribute: true
+          },
+          /**
+           * Set to true if button element content should be visible after dropdown would be  shown
+           */
+          showContent:{
+            type: Boolean,
+            value: false,
+            reflectToAttribute: true
           }
         },
 
