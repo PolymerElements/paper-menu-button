@@ -150,6 +150,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <div class="horizontal-section-container">
       <div>
+        <h4>Alternate Button with visible content</h4>
+        <div class="horizontal-section">
+          <paper-menu-button show-content >
+            <paper-button class="dropdown-trigger" raised>
+              <iron-icon icon="check"></iron-icon>
+              <span>Dinosaurs</span>
+            </paper-button>
+            <paper-menu class="dropdown-content">
+              <template is="dom-repeat" items="[[dinosaurs]]" as="dinosaur">
+                <paper-item>[[dinosaur]]</paper-item>
+              </template>
+            </paper-menu>
+          </paper-menu-button>
+        </div>
+      </div>
+    </div>
+
+    <div class="horizontal-section-container">
+      <div>
         <h4>Alternate Content</h4>
         <div class="horizontal-section">
           <paper-menu-button vertical-align="bottom">
