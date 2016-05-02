@@ -80,40 +80,42 @@ Custom property | Description | Default
 
         @apply(--paper-menu-button-disabled);
       }
-
-      iron-dropdown {
-        @apply(--paper-menu-button-dropdown);
-      }
-
-      .dropdown-content {
-        @apply(--shadow-elevation-2dp);
-
-        position: relative;
-        border-radius: 2px;
-        background-color: var(--paper-menu-button-dropdown-background, --primary-background-color);
-
-        @apply(--paper-menu-button-content);
-      }
-
-      :host([vertical-align="top"]) .dropdown-content {
-        margin-bottom: 20px;
-        margin-top: -10px;
-        top: 10px;
-      }
-
-      :host([vertical-align="bottom"]) .dropdown-content {
-        bottom: 10px;
-        margin-bottom: -10px;
-        margin-top: 20px;
-      }
     </style>
 
     <div id="trigger" on-tap="toggle">
       <content select=".dropdown-trigger"></content>
     </div>
 
-    <template is="overlay-template" id="overlayTemplate">
+    <template is="overlay-template">
+      <script type="css" is="custom-style">
+        .paper-menu-button-dropdown {
+          /*@apply(--paper-menu-button-dropdown);*/
+        }
+
+        .paper-menu-button-dropdown .dropdown-content {
+          @apply(--shadow-elevation-2dp);
+
+          position: relative;
+          border-radius: 2px;
+          background-color: var(--primary-background-color);
+          /*background-color: var(--paper-menu-button-dropdown-background, --primary-background-color);*/
+          /*@apply(--paper-menu-button-content);*/
+        }
+
+        .paper-menu-button-dropdown([vertical-align="top"]) .dropdown-content {
+          margin-bottom: 20px;
+          margin-top: -10px;
+          top: 10px;
+        }
+
+        .paper-menu-button-dropdown([vertical-align="bottom"]) .dropdown-content {
+          bottom: 10px;
+          margin-bottom: -10px;
+          margin-top: 20px;
+        }
+      </script>
       <iron-dropdown
+        class="paper-menu-button-dropdown"
         opened="{{opened}}"
         horizontal-align="[[horizontalAlign]]"
         vertical-align="[[verticalAlign]]"
@@ -307,10 +309,6 @@ Custom property | Description | Default
         get contentElement() {
           var contentParent = Polymer.dom(this.overlay).querySelector('overlay-content-parent');
           return Polymer.dom(contentParent).getDistributedNodes()[0];
-        },
-
-        get overlay() {
-          return this.$.overlayTemplate.overlay;
         },
 
         ready: function() {
