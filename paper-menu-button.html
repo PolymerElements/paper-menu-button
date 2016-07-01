@@ -305,7 +305,10 @@ Custom property | Description | Default
         },
 
         listeners: {
-          'iron-select': '_onIronSelect'
+          'iron-select': '_onIronSelect',
+          'iron-overlay-opened': '__stopEventPropagation',
+          'iron-overlay-closed': '__stopEventPropagation',
+          'iron-overlay-canceled': '__stopEventPropagation'
         },
 
         /**
@@ -412,6 +415,10 @@ Custom property | Description | Default
           if (path.indexOf(trigger) > -1) {
             event.preventDefault();
           }
+        },
+
+        __stopEventPropagation: function(event) {
+          event.stopPropagation();
         }
       });
 
