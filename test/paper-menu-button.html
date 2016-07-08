@@ -86,7 +86,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             MockInteractions.tap(trigger);
           });
         });
-        
+
         MockInteractions.tap(trigger);
       });
 
@@ -105,6 +105,43 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       test('has aria-haspopup attribute', function() {
         expect(menuButton.hasAttribute('aria-haspopup')).to.be.equal(true);
+      });
+
+      test('iron-overlay-opened event propagation is stopped', function(done) {
+        var spy = sinon.stub();
+        Polymer.dom(menuButton).parentNode.addEventListener('iron-overlay-opened', spy);
+        menuButton.opened = true;
+        Polymer.Base.async(function() {
+          expect(spy.called).to.be.false;
+          done();
+        }, 10);
+      });
+
+      test('iron-overlay-closed event propagation is stopped', function(done) {
+        var spy = sinon.stub();
+        Polymer.dom(menuButton).parentNode.addEventListener('iron-overlay-closed', spy);
+        menuButton.opened = true;
+        Polymer.Base.async(function() {
+          menuButton.opened = false;
+          Polymer.Base.async(function() {
+            expect(spy.called).to.be.false;
+            done();
+          }, 10);
+        }, 10);
+      });
+
+      test('iron-overlay-canceled event propagation is stopped', function(done) {
+        var spy = sinon.stub();
+        Polymer.dom(menuButton).parentNode.addEventListener('iron-overlay-canceled', spy);
+        menuButton.opened = true;
+        Polymer.Base.async(function() {
+          // Will cause cancel to happen
+          MockInteractions.tap(menuButton);
+          Polymer.Base.async(function() {
+            expect(spy.called).to.be.false;
+            done();
+          }, 10);
+        }, 10);
       });
 
     });
@@ -150,7 +187,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           Polymer.Base.async(function() {
             MockInteractions.tap(otherTrigger);
           });
-          
+
 
           Polymer.Base.async(function() {
             expect(firstClosed).to.be.equal(true);
