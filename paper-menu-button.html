@@ -61,6 +61,19 @@ Custom property | Description | Default
 
 @hero hero.svg
 @demo demo/index.html
+
+###  What to Use `paper-menu-button` repository for and When to Use it.
+
+`paper-menu-button` could be used in scenarios where performing certain actions on a button would render menu items associated with it.
+
+Format:
+    <paper-menu-button>
+      <trigger-element class="dropdown-trigger"></trigger-element>
+      <second-child-element class="dropdown-content">
+          This is a placeholder for menu items. If the menu item triggers an `iron-select` event, the `paper-menu-button`
+          will close automatically. 
+      </second-child-element>
+    </paper-menu-button>
 -->
 
 <dom-module id="paper-menu-button">
