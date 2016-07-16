@@ -122,7 +122,7 @@ Custom property | Description | Default
       no-animations="[[noAnimations]]"
       focus-target="[[_dropdownContent]]"
       allow-outside-scroll="[[allowOutsideScroll]]"
-      restore-focus-on-close
+      restore-focus-on-close="[[restoreFocusOnClose]]"
       on-iron-overlay-canceled="__onIronOverlayCanceled">
       <div class="dropdown-content">
         <content id="content" select=".dropdown-content"></content>
@@ -305,6 +305,11 @@ Custom property | Description | Default
            */
           _dropdownContent: {
             type: Object
+          },
+          
+          restoreFocusOnClose: {
+            type: Boolean,
+            value: true
           }
         },
 
