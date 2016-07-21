@@ -124,6 +124,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         MockInteractions.tap(trigger);
       });
 
+      test('allows outside scroll', function() {
+        expect(menuButton.hasOwnProperty('allowOutsideScroll')).to.be.equal(true);
+        menuButton.allowOutsideScroll = true;
+        expect(menuButton.$.dropdown.allowOutsideScroll).to.be.equal(true);
+      });
+
     });
 
     suite('when there are two buttons', function() {
