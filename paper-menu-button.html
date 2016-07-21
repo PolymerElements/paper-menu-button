@@ -124,7 +124,7 @@ Custom property | Description | Default
       no-animations="[[noAnimations]]"
       focus-target="[[_dropdownContent]]"
       allow-outside-scroll="[[allowOutsideScroll]]"
-      restore-focus-on-close
+      restore-focus-on-close="[[restoreFocusOnClose]]"
       on-iron-overlay-canceled="__onIronOverlayCanceled">
       <div class="dropdown-content">
         <content id="content" select=".dropdown-content"></content>
@@ -328,6 +328,14 @@ Custom property | Description | Default
           allowOutsideScroll: {
             type: Boolean,
             value: false
+          },
+
+          /**
+           * Whether focus should be restored to the button when the menu closes.
+           */
+          restoreFocusOnClose: {
+            type: Boolean,
+            value: true
           },
 
           /**

@@ -131,6 +131,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         expect(menuButton.$.dropdown.allowOutsideScroll).to.be.equal(true);
       });
 
+      test('restoreFocusOnClose propagates to <iron-dropdown>', function() {
+        menuButton.restoreFocusOnClose = false;
+        expect(menuButton.$.dropdown.restoreFocusOnClose).to.be.equal(false);
+        menuButton.restoreFocusOnClose = true;
+        expect(menuButton.$.dropdown.restoreFocusOnClose).to.be.equal(true);
+      });
+
     });
 
     suite('when there are two buttons', function() {
