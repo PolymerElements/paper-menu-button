@@ -93,6 +93,11 @@ Custom property | Description | Default
         @apply(--paper-menu-button-content);
       }
 
+      .dropdown-content ::content > * {
+        /* Ensure items are full width so they don't wrap during animation. */
+        white-space: nowrap;
+      }
+
       :host([vertical-align="top"]) .dropdown-content {
         margin-bottom: 20px;
         margin-top: -10px;
@@ -126,7 +131,7 @@ Custom property | Description | Default
       allow-outside-scroll="[[allowOutsideScroll]]"
       restore-focus-on-close="[[restoreFocusOnClose]]"
       on-iron-overlay-canceled="__onIronOverlayCanceled">
-      <div class="dropdown-content">
+      <div id="contentWrapper" class="dropdown-content">
         <content id="content" select=".dropdown-content"></content>
       </div>
     </iron-dropdown>
