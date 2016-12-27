@@ -104,7 +104,7 @@ Custom property | Description | Default
         margin-bottom: -10px;
         margin-top: 20px;
       }
-      
+
       #trigger {
         cursor: pointer;
       }
@@ -120,6 +120,7 @@ Custom property | Description | Default
       horizontal-align="[[horizontalAlign]]"
       vertical-align="[[verticalAlign]]"
       dynamic-align="[[dynamicAlign]]"
+      fit-into="[[fitInto]]"
       horizontal-offset="[[horizontalOffset]]"
       vertical-offset="[[verticalOffset]]"
       no-overlap="[[noOverlap]]"
@@ -204,6 +205,13 @@ Custom property | Description | Default
            */
           dynamicAlign: {
             type: Boolean
+          },
+
+          /**
+           * The element to fit `this` into.
+           */
+          fitInto: {
+            type: Object
           },
 
           /**
