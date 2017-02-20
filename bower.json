@@ -13,7 +13,6 @@
     "button"
   ],
   "main": "paper-menu-button.html",
-  "private": true,
   "repository": {
     "type": "git",
     "url": "git://github.com/PolymerElements/paper-menu-button.git"
