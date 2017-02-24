@@ -365,13 +365,12 @@ Custom property | Description | Default
          * The content element that is contained by the menu button, if any.
          */
         get contentElement() {
-          // Ensure it is an Element (See Polymer/polymer#4047).
-          var nodes = Polymer.dom(this.$.content).getEffectiveChildNodes();
-          for (var i = 0; i < nodes.length; i++) {
-            if (nodes[i].nodeType === Node.ELEMENT_NODE) {
-              return nodes[i];
-            }
+          var nodes = Polymer.dom(this.$.content).getDistributedNodes();
+          var i = 0;
+          while (nodes[i] && nodes[i].nodeType !== Node.ELEMENT_NODE) {
+            i++;
           }
+          return nodes[i];
         },
 
         /**
