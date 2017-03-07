@@ -21,7 +21,7 @@
   "license": "http://polymer.github.io/LICENSE.txt",
   "homepage": "https://github.com/PolymerElements/paper-menu-button",
   "dependencies": {
-    "polymer": "Polymer/polymer#2.0-preview",
+    "polymer": "Polymer/polymer#^2.0.0-rc.1",
     "iron-a11y-keys-behavior": "PolymerElements/iron-a11y-keys-behavior#2.0-preview",
     "iron-behaviors": "PolymerElements/iron-behaviors#2.0-preview",
     "iron-dropdown": "PolymerElements/iron-dropdown#2.0-preview",
