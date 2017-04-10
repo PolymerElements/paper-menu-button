@@ -10,6 +10,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <html>
+
 <head>
 
   <meta charset="utf-8">
@@ -32,47 +33,51 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <link rel="import" href="../paper-menu-button.html">
 
-  <custom-style><style is="custom-style" include="demo-pages-shared-styles">
-    demo-snippet {
-      --demo-snippet-code: {
-        max-height: 250px;
+  <custom-style>
+    <style is="custom-style" include="demo-pages-shared-styles">
+      demo-snippet {
+        --demo-snippet-code: {
+          max-height: 250px;
+        }
       }
-    }
-    paper-button {
-      display: block;
-      background: #4285f4;
-      color: #fff;
-    }
 
-    paper-listbox {
-      display: block;
-    }
+      paper-button {
+        display: block;
+        background: #4285f4;
+        color: #fff;
+      }
 
-    paper-menu-button {
-      margin: auto;
-    }
+      paper-listbox {
+        display: block;
+      }
 
-    iron-image {
-      padding: 1em;
-    }
+      paper-menu-button {
+        margin: auto;
+      }
 
-    .item {
-      max-width: 300px;
-    }
+      iron-image {
+        padding: 1em;
+      }
 
-    .horizontal-section {
-      text-align: center;
-    }
-  </style></custom-style>
+      .item {
+        max-width: 300px;
+      }
+
+      .horizontal-section {
+        text-align: center;
+      }
+    </style>
+  </custom-style>
 
 </head>
+
 <body unresolved class="centered">
   <h4>Paper Icon Button + Paper Menu</h4>
   <demo-snippet class="centered-demo">
     <template>
       <paper-menu-button>
         <paper-icon-button icon="menu" slot="dropdown-trigger" alt="menu"></paper-icon-button>
-        <paper-listbox slot="dropdown-content" class="dropdown-content">
+        <paper-listbox slot="dropdown-content">
           <paper-item>alpha</paper-item>
           <paper-item>beta</paper-item>
           <paper-item>gamma</paper-item>
@@ -88,7 +93,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <template>
       <paper-menu-button ignore-select>
         <paper-icon-button icon="menu" slot="dropdown-trigger" alt="multi menu"></paper-icon-button>
-        <paper-listbox slot="dropdown-content" class="dropdown-content" multi>
+        <paper-listbox slot="dropdown-content" multi>
           <paper-item>alpha</paper-item>
           <paper-item>beta</paper-item>
           <paper-item>gamma</paper-item>
@@ -104,7 +109,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <template>
       <paper-menu-button disabled>
         <paper-icon-button icon="menu" slot="dropdown-trigger" alt="menu"></paper-icon-button>
-        <paper-listbox slot="dropdown-content" class="dropdown-content">
+        <paper-listbox slot="dropdown-content">
           <paper-item>alpha</paper-item>
           <paper-item>beta</paper-item>
           <paper-item>gamma</paper-item>
@@ -120,7 +125,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <template>
       <paper-menu-button vertical-align="bottom" horizontal-align="right">
         <paper-icon-button icon="menu" slot="dropdown-trigger" alt="bottom align"></paper-icon-button>
-        <paper-listbox slot="dropdown-content" class="dropdown-content">
+        <paper-listbox slot="dropdown-content">
           <paper-item>alpha</paper-item>
           <paper-item>beta</paper-item>
           <paper-item>gamma</paper-item>
@@ -139,7 +144,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <iron-icon icon="check"></iron-icon>
           <span>Dinosaurs</span>
         </paper-button>
-        <paper-listbox slot="dropdown-content" class="dropdown-content">
+        <paper-listbox slot="dropdown-content">
           <dom-repeat id="dinosaurs" as="dinosaur">
             <template is="dom-repeat" as="dinosaur">
               <paper-item>[[dinosaur]]</paper-item>
@@ -188,10 +193,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <template>
       <paper-menu-button vertical-align="bottom">
         <paper-icon-button slot="dropdown-trigger" icon="polymer" alt="polymer"></paper-icon-button>
-        <iron-image slot="dropdown-content" class="dropdown-content" src="../../iron-image/demo/polymer.svg"></iron-image>
+        <iron-image slot="dropdown-content" src="../../iron-image/demo/polymer.svg"></iron-image>
       </paper-menu-button>
     </template>
   </demo-snippet>
 
 </body>
+
 </html>

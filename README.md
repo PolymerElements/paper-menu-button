@@ -25,8 +25,8 @@ Material design: [Dropdown buttons](https://www.google.com/design/spec/component
 another element that represents "content", to create a dropdown menu that
 displays the "content" when the "trigger" is clicked.
 
-The child element with the class `dropdown-trigger` will be used as the
-"trigger" element. The child element with the class `dropdown-content` will be
+The child element with the slot `dropdown-trigger` will be used as the
+"trigger" element. The child element with the slot `dropdown-content` will be
 used as the "content" element.
 
 The `paper-menu-button` is sensitive to its content's `iron-select` events. If
@@ -37,12 +37,12 @@ Example:
 
 ```html
 <paper-menu-button>
-  <paper-icon-button icon="menu" class="dropdown-trigger"></paper-icon-button>
-  <paper-menu class="dropdown-content">
+  <paper-icon-button icon="menu" slot="dropdown-trigger"></paper-icon-button>
+  <paper-listbox slot="dropdown-content">
     <paper-item>Share</paper-item>
     <paper-item>Settings</paper-item>
     <paper-item>Help</paper-item>
-  </paper-menu>
+  </paper-listbox>
 </paper-menu-button>
 ```
 
