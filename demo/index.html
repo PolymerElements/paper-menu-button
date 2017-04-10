@@ -141,7 +141,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </paper-button>
         <paper-listbox class="dropdown-content">
           <dom-repeat id="dinosaurs" as="dinosaur">
-            <template>
+            <template is="dom-repeat" as="dinosaur">
               <paper-item>[[dinosaur]]</paper-item>
             </template>
           </dom-repeat>
@@ -177,6 +177,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           'yandusaurus',
           'zephyrosaurus'
         ];
+        // Support hybrid mode.
+        dinosaurs.firstElementChild.items = dinosaurs.items;
       </script>
     </template>
   </demo-snippet>
