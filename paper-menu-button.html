@@ -37,7 +37,7 @@ Example:
 
     <paper-menu-button>
       <paper-icon-button icon="menu" class="dropdown-trigger"></paper-icon-button>
-      <paper-menu class="dropdown-content">
+      <paper-menu slot="dropdown-content" class="dropdown-content">
         <paper-item>Share</paper-item>
         <paper-item>Settings</paper-item>
         <paper-item>Help</paper-item>
@@ -130,8 +130,8 @@ Custom property | Description | Default
       allow-outside-scroll="[[allowOutsideScroll]]"
       restore-focus-on-close="[[restoreFocusOnClose]]"
       on-iron-overlay-canceled="__onIronOverlayCanceled">
-      <div class="dropdown-content">
-        <slot id="content"></slot>
+      <div slot="dropdown-content" class="dropdown-content">
+        <slot id="content" name="dropdown-content"></slot>
       </div>
     </iron-dropdown>
   </template>
