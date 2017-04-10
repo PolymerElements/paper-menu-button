@@ -25,8 +25,8 @@ Material design: [Dropdown buttons](https://www.google.com/design/spec/component
 another element that represents "content", to create a dropdown menu that
 displays the "content" when the "trigger" is clicked.
 
-The child element with the slot `dropdown-trigger` will be used as the
-"trigger" element. The child element with the slot `dropdown-content` will be
+The child element assigned to the `dropdown-trigger` slot will be used as the
+"trigger" element. The child element assigned to the `dropdown-content` slot will be
 used as the "content" element.
 
 The `paper-menu-button` is sensitive to its content's `iron-select` events. If
