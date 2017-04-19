@@ -1,23 +1,9 @@
-
-<!---
-
-This README is automatically generated from the comments in these files:
-paper-menu-button-animations.html  paper-menu-button.html
-
-Edit those files, and our readme bot will duplicate them over here!
-Edit this file, and the bot will squash your changes :)
-
-The bot does some handling of markdown. Please file a bug if it does the wrong
-thing! https://github.com/PolymerLabs/tedium/issues
-
--->
-
 [![Build status](https://travis-ci.org/PolymerElements/paper-menu-button.svg?branch=master)](https://travis-ci.org/PolymerElements/paper-menu-button)
 
 _[Demo and API docs](https://elements.polymer-project.org/elements/paper-menu-button)_
 
 
-##&lt;paper-menu-button&gt;
+## &lt;paper-menu-button&gt;
 
 Material design: [Dropdown buttons](https://www.google.com/design/spec/components/buttons.html#buttons-dropdown-buttons)
 
@@ -57,13 +43,3 @@ The following custom properties and mixins are also available for styling:
 | `--paper-menu-button-disabled` | Mixin applied to the paper-menu-button when disabled | `{}` |
 | `--paper-menu-button-dropdown` | Mixin applied to the paper-menu-button dropdown | `{}` |
 | `--paper-menu-button-content` | Mixin applied to the paper-menu-button content | `{}` |
-
-
-
-<!-- No docs for <paper-menu-grow-height-animation> found. -->
-
-<!-- No docs for <paper-menu-grow-width-animation> found. -->
-
-<!-- No docs for <paper-menu-shrink-height-animation> found. -->
-
-<!-- No docs for <paper-menu-shrink-width-animation> found. -->
