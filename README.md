@@ -43,3 +43,19 @@ The following custom properties and mixins are also available for styling:
 | `--paper-menu-button-disabled` | Mixin applied to the paper-menu-button when disabled | `{}` |
 | `--paper-menu-button-dropdown` | Mixin applied to the paper-menu-button dropdown | `{}` |
 | `--paper-menu-button-content` | Mixin applied to the paper-menu-button content | `{}` |
+
+## paper-menu-button-animations.html
+
+Defines these animations:
+- &lt;paper-menu-grow-height-animation&gt;
+- &lt;paper-menu-grow-width-animation&gt;
+- &lt;paper-menu-shrink-height-animation&gt;
+- &lt;paper-menu-shrink-width-animation&gt;
+
+### Changes in 2.0
+- `neon-animation 2.0` doesn't import the Web Animations polyfill, so you'll have to import it ([see example](demo/index.html))
+
+
+
+
+
