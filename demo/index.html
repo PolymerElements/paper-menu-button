@@ -68,6 +68,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .horizontal-section {
         text-align: center;
       }
+
+      #fitIntoContainer {
+        height: 150px;
+        width: 100%;
+        text-align: center;
+        border: 1px solid black;
+      }
     </style>
   </custom-style>
 
@@ -200,6 +207,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </template>
   </demo-snippet>
 
+  <h4>Fit dropdown into container</h4>
+  <demo-snippet class="centered-demo">
+    <template>
+      <div id="fitIntoContainer">
+        <paper-menu-button id="fitIntoMenuButton">
+          <paper-icon-button icon="menu" slot="dropdown-trigger" alt="menu"></paper-icon-button>
+          <paper-listbox slot="dropdown-content">
+            <paper-item>alpha</paper-item>
+            <paper-item>beta</paper-item>
+            <paper-item>gamma</paper-item>
+            <paper-item>delta</paper-item>
+            <paper-item>epsilon</paper-item>
+          </paper-listbox>
+        </paper-menu-button>
+      </div>
+      <script>
+        var fitInto = document.querySelector('#fitIntoContainer');
+        var menuButton = document.querySelector('#fitIntoMenuButton');
+        menuButton.fitInto = fitInto;
+      </script>
+    </template>
+  </demo-snippet>
 </body>
 
 </html>
