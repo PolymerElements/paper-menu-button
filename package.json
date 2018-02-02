@@ -1,0 +1,10 @@
+{
+  "name": "@polymer/paper-menu-button",
+  "private": true,
+  "description": "A material design element that composes a trigger and a dropdown menu",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/PolymerElements/paper-menu-button.git"
+  },
+  "license": "http://polymer.github.io/LICENSE.txt"
+}
