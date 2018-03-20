@@ -19,7 +19,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <script src="../../iron-test-helpers/mock-interactions.js"></script>
 
   <link rel="import" href="../paper-menu-button.html">
+  <style>
 
+    #fitIntoTarget {
+      position: fixed;
+      top: 200px;
+      left: 200px;
+      height: 200px;
+      width: 200px;
+      border: 1px solid black;
+    }
+  </style>
 </head>
 <body>
 
@@ -42,6 +52,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <span slot="dropdown-trigger">trigger</span>
         <span slot="dropdown-content">content</span>
       </paper-menu-button>
+    </template>
+  </test-fixture>
+
+  <test-fixture id="FitInto">
+    <template>
+        <div id="fitIntoTarget"></div>
+        <paper-menu-button no-animations>
+          <span slot="dropdown-trigger">trigger</span>
+          <span slot="dropdown-content">content</span>
+        </paper-menu-button>
     </template>
   </test-fixture>
 
@@ -189,6 +209,39 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           });
         });
 
+        MockInteractions.tap(trigger);
+      });
+    });
+
+    suite('fitInto', function() {
+      var fitIntoTarget;
+      var menuButton;
+      var trigger;
+      var content;
+
+      setup(function() {
+        var elements = fixture('FitInto');
+        
+        fitIntoTarget = elements[0];
+        menuButton = elements[1];
+        trigger = Polymer.dom(menuButton).querySelector('[slot="dropdown-trigger"]');
+        content = Polymer.dom(menuButton).querySelector('[slot="dropdown-content"]');
+      });
+
+      test('position dropdown content in fitInto container', function(done) {
+
+        menuButton.fitInto = fitIntoTarget;
+       
+        menuButton.addEventListener('paper-dropdown-open', function() {
+          Polymer.Base.async(function () {
+            var targetRect = fitIntoTarget.getBoundingClientRect();
+            var contentRect = content.getBoundingClientRect();
+            expect(menuButton.opened).to.be.equal(true);
+            assert.equal(targetRect.top, contentRect.top, 'top ok');
+            assert.equal(targetRect.left, contentRect.left, 'left ok');
+            done();
+          }, 100);
+        });
         MockInteractions.tap(trigger);
       });
     });
