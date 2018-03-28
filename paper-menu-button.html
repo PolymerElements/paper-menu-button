@@ -12,11 +12,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../iron-a11y-keys-behavior/iron-a11y-keys-behavior.html">
 <link rel="import" href="../iron-behaviors/iron-control-state.html">
 <link rel="import" href="../iron-dropdown/iron-dropdown.html">
-<link rel="import" href="../neon-animation/animations/fade-in-animation.html">
-<link rel="import" href="../neon-animation/animations/fade-out-animation.html">
 <link rel="import" href="../paper-styles/default-theme.html">
 <link rel="import" href="../paper-styles/shadow.html">
-<link rel="import" href="paper-menu-button-animations.html">
 
 <!--
 Material design: [Dropdown buttons](https://www.google.com/design/spec/components/buttons.html#buttons-dropdown-buttons)
@@ -80,56 +77,182 @@ Custom property | Description | Default
       }
 
       iron-dropdown {
+        border-radius: 2px;
+        @apply --shadow-elevation-2dp;
         @apply --paper-menu-button-dropdown;
       }
 
       .dropdown-content {
-        @apply --shadow-elevation-2dp;
-
         position: relative;
-        border-radius: 2px;
         background-color: var(--paper-menu-button-dropdown-background, var(--primary-background-color));
 
         @apply --paper-menu-button-content;
       }
 
-      :host([vertical-align="top"]) .dropdown-content {
-        margin-bottom: 20px;
-        margin-top: -10px;
-        top: 10px;
-      }
-
-      :host([vertical-align="bottom"]) .dropdown-content {
-        bottom: 10px;
-        margin-bottom: -10px;
-        margin-top: 20px;
-      }
-
       #trigger {
         cursor: pointer;
       }
+
+      .animating,
+      .animating > * {
+        overflow: hidden;
+        will-change: transform;
+        contain: content;
+        animation-fill-mode: both;
+        animation-timing-function: step-end;
+      }
+
+      .entry-animation {
+        animation-delay: 100ms;
+        animation-duration: 250ms;
+        animation-name: expand-animation;
+      }
+
+      .entry-animation>* {
+        animation-delay: 100ms;
+        animation-duration: 250ms;
+        animation-name: expand-animationInverse;
+      }
+
+      .exit-animation {
+        animation-duration: 150ms;
+        animation-name: expand-animation;
+        animation-direction: reverse;
+      }
+
+      .exit-animation>* {
+        animation-duration: 150ms;
+        animation-name: expand-animationInverse;
+        animation-direction: reverse;
+      }
+
+      @keyframes expand-animation {
+        0% {
+          opacity: 0;
+          transform: scale(0.7, 0.5);
+        }
+        6.25% {
+          opacity: 0.2;
+          transform: scale(0.75669, 0.59448);
+        }
+        12.5% {
+          opacity: 0.3;
+          transform: scale(0.80741, 0.67902);
+        }
+        18.75% {
+          opacity: 0.4;
+          transform: scale(0.85146, 0.75243);
+        }
+        25% {
+          opacity: 0.6;
+          transform: scale(0.88846, 0.8141);
+        }
+        31.25% {
+          opacity: 0.7;
+          transform: scale(0.91851, 0.86418);
+        }
+        37.5% {
+          opacity: 0.8;
+          transform: scale(0.9421, 0.90351);
+        }
+        43.75% {
+          opacity: 0.9;
+          transform: scale(0.96006, 0.93343);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(0.97333, 0.95555);
+        }
+        56.25% {
+          transform: scale(0.98285, 0.97142);
+        }
+        62.5% {
+          transform: scale(0.98949, 0.98248);
+        }
+        68.75% {
+          transform: scale(0.99395, 0.98992);
+        }
+        75% {
+          transform: scale(0.99682, 0.9947);
+        }
+        81.25% {
+          transform: scale(0.99854, 0.99757);
+        }
+        87.5% {
+          transform: scale(0.99948, 0.99913);
+        }
+        93.75% {
+          transform: scale(0.9999, 0.99983);
+        }
+        100% {
+          transform: scale(1, 1);
+        }
+      }
+
+      @keyframes expand-animationInverse {
+        0% {
+          transform: scale(1.42857, 2);
+        }
+        6.25% {
+          transform: scale(1.32155, 1.68214);
+        }
+        12.5% {
+          transform: scale(1.23853, 1.47271);
+        }
+        18.75% {
+          transform: scale(1.17445, 1.32903);
+        }
+        25% {
+          transform: scale(1.12554, 1.22835);
+        }
+        31.25% {
+          transform: scale(1.08872, 1.15717);
+        }
+        37.5% {
+          transform: scale(1.06146, 1.10679);
+        }
+        43.75% {
+          transform: scale(1.0416, 1.07132);
+        }
+        50% {
+          transform: scale(1.0274, 1.04652);
+        }
+        56.25% {
+          transform: scale(1.01745, 1.02942);
+        }
+        62.5% {
+          transform: scale(1.01062, 1.01783);
+        }
+        68.75% {
+          transform: scale(1.00609, 1.01018);
+        }
+        75% {
+          transform: scale(1.00319, 1.00533);
+        }
+        81.25% {
+          transform: scale(1.00146, 1.00244);
+        }
+        87.5% {
+          transform: scale(1.00052, 1.00087);
+        }
+        93.75% {
+          transform: scale(1.0001, 1.00017);
+        }
+        100% {
+          transform: scale(1, 1);
+        }
+      }
+
     </style>
 
     <div id="trigger" on-tap="toggle">
       <slot name="dropdown-trigger"></slot>
     </div>
 
-    <iron-dropdown
-      id="dropdown"
-      opened="{{opened}}"
-      horizontal-align="[[horizontalAlign]]"
-      vertical-align="[[verticalAlign]]"
-      dynamic-align="[[dynamicAlign]]"
-      horizontal-offset="[[horizontalOffset]]"
-      vertical-offset="[[verticalOffset]]"
-      no-overlap="[[noOverlap]]"
-      open-animation-config="[[openAnimationConfig]]"
-      close-animation-config="[[closeAnimationConfig]]"
-      no-animations="[[noAnimations]]"
-      focus-target="[[_dropdownContent]]"
-      allow-outside-scroll="[[allowOutsideScroll]]"
-      restore-focus-on-close="[[restoreFocusOnClose]]"
-      on-iron-overlay-canceled="__onIronOverlayCanceled">
+    <iron-dropdown id="dropdown" opened="{{opened}}" horizontal-align="[[horizontalAlign]]" vertical-align="[[verticalAlign]]"
+      dynamic-align="[[dynamicAlign]]" horizontal-offset="[[horizontalOffset]]" vertical-offset="[[verticalOffset]]" no-overlap="[[noOverlap]]"
+      entry-animation="entry-animation" exit-animation="exit-animation" no-animations="[[noAnimations]]" focus-target="[[_dropdownContent]]"
+      allow-outside-scroll="[[allowOutsideScroll]]" restore-focus-on-close="[[restoreFocusOnClose]]" on-iron-overlay-canceled="__onIronOverlayCanceled">
       <div slot="dropdown-content" class="dropdown-content">
         <slot id="content" name="dropdown-content"></slot>
       </div>
@@ -139,11 +262,6 @@ Custom property | Description | Default
   <script>
     (function() {
       'use strict';
-
-      var config = {
-        ANIMATION_CUBIC_BEZIER: 'cubic-bezier(.3,.95,.5,1)',
-        MAX_ANIMATION_TIME_MS: 400
-      };
 
       var PaperMenuButton = Polymer({
         is: 'paper-menu-button',
@@ -261,66 +379,6 @@ Custom property | Description | Default
           closeOnActivate: {
             type: Boolean,
             value: false
-          },
-
-          /**
-           * An animation config. If provided, this will be used to animate the
-           * opening of the dropdown.
-           */
-          openAnimationConfig: {
-            type: Object,
-            value: function() {
-              return [{
-                name: 'fade-in-animation',
-                timing: {
-                  delay: 100,
-                  duration: 200
-                }
-              }, {
-                name: 'paper-menu-grow-width-animation',
-                timing: {
-                  delay: 100,
-                  duration: 150,
-                  easing: config.ANIMATION_CUBIC_BEZIER
-                }
-              }, {
-                name: 'paper-menu-grow-height-animation',
-                timing: {
-                  delay: 100,
-                  duration: 275,
-                  easing: config.ANIMATION_CUBIC_BEZIER
-                }
-              }];
-            }
-          },
-
-          /**
-           * An animation config. If provided, this will be used to animate the
-           * closing of the dropdown.
-           */
-          closeAnimationConfig: {
-            type: Object,
-            value: function() {
-              return [{
-                name: 'fade-out-animation',
-                timing: {
-                  duration: 150
-                }
-              }, {
-                name: 'paper-menu-shrink-width-animation',
-                timing: {
-                  delay: 100,
-                  duration: 50,
-                  easing: config.ANIMATION_CUBIC_BEZIER
-                }
-              }, {
-                name: 'paper-menu-shrink-height-animation',
-                timing: {
-                  duration: 200,
-                  easing: 'ease-in'
-                }
-              }];
-            }
           },
 
           /**
@@ -473,10 +531,6 @@ Custom property | Description | Default
             event.preventDefault();
           }
         }
-      });
-
-      Object.keys(config).forEach(function (key) {
-        PaperMenuButton[key] = config[key];
       });
 
       Polymer.PaperMenuButton = PaperMenuButton;
