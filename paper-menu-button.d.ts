@@ -12,11 +12,8 @@
 /// <reference path="../iron-a11y-keys-behavior/iron-a11y-keys-behavior.d.ts" />
 /// <reference path="../iron-behaviors/iron-control-state.d.ts" />
 /// <reference path="../iron-dropdown/iron-dropdown.d.ts" />
-/// <reference path="../neon-animation/animations/fade-in-animation.d.ts" />
-/// <reference path="../neon-animation/animations/fade-out-animation.d.ts" />
 /// <reference path="../paper-styles/default-theme.d.ts" />
 /// <reference path="../paper-styles/shadow.d.ts" />
-/// <reference path="paper-menu-button-animations.d.ts" />
 
 /**
  * Material design: [Dropdown buttons](https://www.google.com/design/spec/components/buttons.html#buttons-dropdown-buttons)
@@ -120,18 +117,6 @@ declare class PaperMenuButton extends Polymer.Element {
    * item has been activated, even if the selection did not change.
    */
   closeOnActivate: boolean|null|undefined;
-
-  /**
-   * An animation config. If provided, this will be used to animate the
-   * opening of the dropdown.
-   */
-  openAnimationConfig: object|null|undefined;
-
-  /**
-   * An animation config. If provided, this will be used to animate the
-   * closing of the dropdown.
-   */
-  closeAnimationConfig: object|null|undefined;
 
   /**
    * By default, the dropdown will constrain scrolling on the page

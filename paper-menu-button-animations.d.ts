@@ -9,7 +9,6 @@
  */
 
 /// <reference path="../polymer/types/polymer.d.ts" />
-/// <reference path="../neon-animation/neon-animation-behavior.d.ts" />
 
 interface PaperMenuGrowHeightAnimationElement extends Polymer.Element, Polymer.NeonAnimationBehavior {
   configure(config: any): any;
