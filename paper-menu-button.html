@@ -104,24 +104,24 @@ Custom property | Description | Default
 
       .entry-animation {
         animation-delay: 100ms;
-        animation-duration: 250ms;
+        animation-duration: 275ms;
         animation-name: expand-animation;
       }
 
-      .entry-animation>* {
+      .entry-animation > * {
         animation-delay: 100ms;
-        animation-duration: 250ms;
+        animation-duration: 275ms;
         animation-name: expand-animationInverse;
       }
 
       .exit-animation {
-        animation-duration: 150ms;
+        animation-duration: 200ms;
         animation-name: expand-animation;
         animation-direction: reverse;
       }
 
-      .exit-animation>* {
-        animation-duration: 150ms;
+      .exit-animation > * {
+        animation-duration: 200ms;
         animation-name: expand-animationInverse;
         animation-direction: reverse;
       }
@@ -132,47 +132,51 @@ Custom property | Description | Default
           transform: scale(0.7, 0.5);
         }
         6.25% {
-          opacity: 0.2;
+          opacity: 0.09;
           transform: scale(0.75669, 0.59448);
         }
         12.5% {
-          opacity: 0.3;
+          opacity: 0.17;
           transform: scale(0.80741, 0.67902);
         }
         18.75% {
-          opacity: 0.4;
+          opacity: 0.27;
           transform: scale(0.85146, 0.75243);
         }
         25% {
-          opacity: 0.6;
+          opacity: 0.36;
           transform: scale(0.88846, 0.8141);
         }
         31.25% {
-          opacity: 0.7;
+          opacity: 0.25;
           transform: scale(0.91851, 0.86418);
         }
         37.5% {
-          opacity: 0.8;
+          opacity: 0.5;
           transform: scale(0.9421, 0.90351);
         }
         43.75% {
-          opacity: 0.9;
+          opacity: 0.58;
           transform: scale(0.96006, 0.93343);
         }
         50% {
-          opacity: 1;
+          opacity: 0.67;
           transform: scale(0.97333, 0.95555);
         }
         56.25% {
+          opacity: 0.75;
           transform: scale(0.98285, 0.97142);
         }
         62.5% {
+          opacity: 0.83;
           transform: scale(0.98949, 0.98248);
         }
         68.75% {
+          opacity: 0.82;
           transform: scale(0.99395, 0.98992);
         }
         75% {
+          opacity: 1;
           transform: scale(0.99682, 0.9947);
         }
         81.25% {
@@ -249,10 +253,22 @@ Custom property | Description | Default
       <slot name="dropdown-trigger"></slot>
     </div>
 
-    <iron-dropdown id="dropdown" opened="{{opened}}" horizontal-align="[[horizontalAlign]]" vertical-align="[[verticalAlign]]"
-      dynamic-align="[[dynamicAlign]]" horizontal-offset="[[horizontalOffset]]" vertical-offset="[[verticalOffset]]" no-overlap="[[noOverlap]]"
-      entry-animation="entry-animation" exit-animation="exit-animation" no-animations="[[noAnimations]]" focus-target="[[_dropdownContent]]"
-      allow-outside-scroll="[[allowOutsideScroll]]" restore-focus-on-close="[[restoreFocusOnClose]]" on-iron-overlay-canceled="__onIronOverlayCanceled">
+    <iron-dropdown
+      id="dropdown"
+      opened="{{opened}}"
+      horizontal-align="[[horizontalAlign]]"
+      vertical-align="[[verticalAlign]]"
+      dynamic-align="[[dynamicAlign]]"
+      horizontal-offset="[[horizontalOffset]]"
+      vertical-offset="[[verticalOffset]]"
+      no-overlap="[[noOverlap]]"
+      entry-animation="entry-animation"
+      exit-animation="exit-animation"
+      no-animations="[[noAnimations]]"
+      focus-target="[[_dropdownContent]]"
+      allow-outside-scroll="[[allowOutsideScroll]]"
+      restore-focus-on-close="[[restoreFocusOnClose]]"
+      on-iron-overlay-canceled="__onIronOverlayCanceled">
       <div slot="dropdown-content" class="dropdown-content">
         <slot id="content" name="dropdown-content"></slot>
       </div>
@@ -379,6 +395,28 @@ Custom property | Description | Default
           closeOnActivate: {
             type: Boolean,
             value: false
+          },
+
+          /**
+           * This property is deprecated and will be ignored.
+           * @deprecated
+           */
+          openAnimationConfig: {
+            type: Object,
+            value: function() {
+              return [];
+            }
+          },
+
+          /**
+           * This property is deprecated and will be ignored.
+           * @deprecated
+           */
+          closeAnimationConfig: {
+            type: Object,
+            value: function() {
+              return [];
+            }
           },
 
           /**
