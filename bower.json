@@ -26,6 +26,7 @@
     "iron-behaviors": "PolymerElements/iron-behaviors#1 - 2",
     "iron-dropdown": "PolymerElements/iron-dropdown#no-neon-animation",
     "iron-fit-behavior": "PolymerElements/iron-fit-behavior#1 - 2",
+    "neon-animation": "PolymerElements/neon-animation#1 - 2",
     "paper-styles": "PolymerElements/paper-styles#1 - 2"
   },
   "devDependencies": {
@@ -50,6 +51,7 @@
         "iron-behaviors": "PolymerElements/iron-behaviors#^1.0.0",
         "iron-dropdown": "PolymerElements/iron-dropdown#no-neon-animation",
         "iron-fit-behavior": "PolymerElements/iron-fit-behavior#^1.2.0",
+        "neon-animation": "PolymerElements/neon-animation#^1.0.0",
         "paper-styles": "PolymerElements/paper-styles#^1.0.0"
       },
       "devDependencies": {
