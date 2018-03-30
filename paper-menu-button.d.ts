@@ -119,16 +119,6 @@ declare class PaperMenuButton extends Polymer.Element {
   closeOnActivate: boolean|null|undefined;
 
   /**
-   * This property is deprecated and will be ignored.
-   */
-  openAnimationConfig: object|null|undefined;
-
-  /**
-   * This property is deprecated and will be ignored.
-   */
-  closeAnimationConfig: object|null|undefined;
-
-  /**
    * By default, the dropdown will constrain scrolling on the page
    * to itself when opened.
    * Set to true in order to prevent scroll from being constrained
