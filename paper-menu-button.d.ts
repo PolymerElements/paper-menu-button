@@ -145,14 +145,6 @@ declare class PaperMenuButton extends Polymer.Element {
   readonly contentElement: any;
 
   /**
-   * If the dropdown is open when disabled becomes true, close the
-   * dropdown.
-   *
-   * @param disabled True if disabled, otherwise false.
-   */
-  _disabledChanged(disabled: boolean): void;
-
-  /**
    * Toggles the drowpdown content between opened and closed.
    */
   toggle(): void;
@@ -167,32 +159,6 @@ declare class PaperMenuButton extends Polymer.Element {
    * Hide the dropdown content.
    */
   close(): void;
-
-  /**
-   * When an `iron-select` event is received, the dropdown should
-   * automatically close on the assumption that a value has been chosen.
-   *
-   * @param event A CustomEvent instance with type
-   * set to `"iron-select"`.
-   */
-  _onIronSelect(event: CustomEvent|null): void;
-
-  /**
-   * Closes the dropdown when an `iron-activate` event is received if
-   * `closeOnActivate` is true.
-   *
-   * @param event A CustomEvent of type 'iron-activate'.
-   */
-  _onIronActivate(event: CustomEvent|null): void;
-
-  /**
-   * When the dropdown opens, the `paper-menu-button` fires `paper-open`.
-   * When the dropdown closes, the `paper-menu-button` fires `paper-close`.
-   *
-   * @param opened True if the dropdown is opened, otherwise false.
-   * @param oldOpened The previous value of `opened`.
-   */
-  _openedChanged(opened: boolean, oldOpened: boolean): void;
 }
 
 interface PaperMenuButton extends Polymer.IronA11yKeysBehavior, Polymer.IronControlState {

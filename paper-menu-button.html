@@ -481,6 +481,7 @@ Custom property | Description | Default
          *
          * @param {CustomEvent} event A CustomEvent instance with type
          * set to `"iron-select"`.
+         * @private
          */
         _onIronSelect: function(event) {
           if (!this.ignoreSelect) {
@@ -493,6 +494,7 @@ Custom property | Description | Default
          * `closeOnActivate` is true.
          *
          * @param {CustomEvent} event A CustomEvent of type 'iron-activate'.
+         * @private
          */
         _onIronActivate: function(event) {
           if (this.closeOnActivate) {
@@ -506,6 +508,7 @@ Custom property | Description | Default
          *
          * @param {boolean} opened True if the dropdown is opened, otherwise false.
          * @param {boolean} oldOpened The previous value of `opened`.
+         * @private
          */
         _openedChanged: function(opened, oldOpened) {
           if (opened) {
@@ -526,6 +529,7 @@ Custom property | Description | Default
          * dropdown.
          *
          * @param {boolean} disabled True if disabled, otherwise false.
+         * @private
          */
         _disabledChanged: function(disabled) {
           Polymer.IronControlState._disabledChanged.apply(this, arguments);
@@ -534,6 +538,9 @@ Custom property | Description | Default
           }
         },
 
+        /**
+         * @private
+         */
         __onIronOverlayCanceled: function(event) {
           var uiEvent = event.detail;
           var target = Polymer.dom(uiEvent).rootTarget;
