@@ -76,6 +76,10 @@ Custom property | Description | Default
         @apply --paper-menu-button-disabled;
       }
 
+      #trigger {
+        cursor: pointer;
+      }
+
       iron-dropdown {
         border-radius: 2px;
         @apply --shadow-elevation-2dp;
@@ -83,18 +87,16 @@ Custom property | Description | Default
       }
 
       .dropdown-content {
+        /* Inherits from iron-dropdown, so inverse animation can work as expected. */
+        transform-origin: inherit;
         position: relative;
         background-color: var(--paper-menu-button-dropdown-background, var(--primary-background-color));
 
         @apply --paper-menu-button-content;
       }
-
-      #trigger {
-        cursor: pointer;
-      }
-
+      
       .animating,
-      .animating > * {
+      .animating > .dropdown-content {
         overflow: hidden;
         will-change: transform;
         contain: content;
@@ -102,27 +104,23 @@ Custom property | Description | Default
         animation-timing-function: step-end;
       }
 
-      .entry-animation {
-        animation-delay: 100ms;
-        animation-duration: 275ms;
+      .animating {
         animation-name: expand-animation;
       }
 
-      .entry-animation > * {
+      .animating > .dropdown-content {
+        animation-name: expand-animationInverse;
+      }
+
+      .entry-animation,
+      .entry-animation > .dropdown-content {
         animation-delay: 100ms;
         animation-duration: 275ms;
-        animation-name: expand-animationInverse;
       }
 
-      .exit-animation {
+      .exit-animation,
+      .exit-animation > .dropdown-content {
         animation-duration: 200ms;
-        animation-name: expand-animation;
-        animation-direction: reverse;
-      }
-
-      .exit-animation > * {
-        animation-duration: 200ms;
-        animation-name: expand-animationInverse;
         animation-direction: reverse;
       }
 
@@ -246,7 +244,6 @@ Custom property | Description | Default
           transform: scale(1, 1);
         }
       }
-
     </style>
 
     <div id="trigger" on-tap="toggle">
@@ -395,28 +392,6 @@ Custom property | Description | Default
           closeOnActivate: {
             type: Boolean,
             value: false
-          },
-
-          /**
-           * This property is deprecated and will be ignored.
-           * @deprecated
-           */
-          openAnimationConfig: {
-            type: Object,
-            value: function() {
-              return [];
-            }
-          },
-
-          /**
-           * This property is deprecated and will be ignored.
-           * @deprecated
-           */
-          closeAnimationConfig: {
-            type: Object,
-            value: function() {
-              return [];
-            }
           },
 
           /**
