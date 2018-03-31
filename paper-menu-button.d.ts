@@ -119,6 +119,20 @@ declare class PaperMenuButton extends Polymer.Element {
   closeOnActivate: boolean|null|undefined;
 
   /**
+   * Deprecated, setting it won't have effects on the animation.
+   * `iron-dropdown` doesn't depend anymore on `neon-animation`, and this property is kept
+   * here to not break bindings.
+   */
+  openAnimationConfig: object|null|undefined;
+
+  /**
+   * Deprecated, setting it won't have effects on the animation.
+   * `iron-dropdown` doesn't depend anymore on `neon-animation`, and this property is kept
+   * here to not break bindings.
+   */
+  closeAnimationConfig: object|null|undefined;
+
+  /**
    * By default, the dropdown will constrain scrolling on the page
    * to itself when opened.
    * Set to true in order to prevent scroll from being constrained
@@ -143,6 +157,7 @@ declare class PaperMenuButton extends Polymer.Element {
    *          
    */
   readonly contentElement: any;
+  ready(): void;
 
   /**
    * Toggles the drowpdown content between opened and closed.

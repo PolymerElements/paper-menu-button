@@ -395,6 +395,76 @@ Custom property | Description | Default
           },
 
           /**
+           * Deprecated, setting it won't have effects on the animation.
+           * `iron-dropdown` doesn't depend anymore on `neon-animation`, and this property is kept
+           * here to not break bindings.
+           * @deprecated
+           */
+          openAnimationConfig: {
+            type: Object,
+            value: function() {
+              var config = [{
+                name: 'fade-in-animation',
+                timing: {
+                  delay: 100,
+                  duration: 200
+                }
+              }, {
+                name: 'paper-menu-grow-width-animation',
+                timing: {
+                  delay: 100,
+                  duration: 150,
+                  easing: config.ANIMATION_CUBIC_BEZIER
+                }
+              }, {
+                name: 'paper-menu-grow-height-animation',
+                timing: {
+                  delay: 100,
+                  duration: 275,
+                  easing: config.ANIMATION_CUBIC_BEZIER
+                }
+              }];
+              // HACK: Mark it so we know if to warn or not on ready.
+              config.__default = true;
+              return config;
+            }
+          },
+
+          /**
+           * Deprecated, setting it won't have effects on the animation.
+           * `iron-dropdown` doesn't depend anymore on `neon-animation`, and this property is kept
+           * here to not break bindings.
+           * @deprecated
+           */
+          closeAnimationConfig: {
+            type: Object,
+            value: function() {
+              var config = [{
+                name: 'fade-out-animation',
+                timing: {
+                  duration: 150
+                }
+              }, {
+                name: 'paper-menu-shrink-width-animation',
+                timing: {
+                  delay: 100,
+                  duration: 50,
+                  easing: config.ANIMATION_CUBIC_BEZIER
+                }
+              }, {
+                name: 'paper-menu-shrink-height-animation',
+                timing: {
+                  duration: 200,
+                  easing: 'ease-in'
+                }
+              }];
+              // HACK: Mark it so we know if to warn or not on ready.
+              config.__default = true;
+              return config;
+            }
+          },
+
+          /**
            * By default, the dropdown will constrain scrolling on the page
            * to itself when opened.
            * Set to true in order to prevent scroll from being constrained
@@ -442,6 +512,14 @@ Custom property | Description | Default
             if (nodes[i].nodeType === Node.ELEMENT_NODE) {
               return nodes[i];
             }
+          }
+        },
+
+        ready: function() {
+          if ((this.openAnimationConfig && !this.openAnimationConfig.__default) ||
+              (this.closeAnimationConfig && !this.closeAnimationConfig.__default)) {
+            console.warn('Configuring animations through openAnimationConfig ' +
+              'or closeAnimationConfig is no longer supported.');
           }
         },
 
