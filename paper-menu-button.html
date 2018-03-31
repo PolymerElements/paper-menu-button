@@ -12,11 +12,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../iron-a11y-keys-behavior/iron-a11y-keys-behavior.html">
 <link rel="import" href="../iron-behaviors/iron-control-state.html">
 <link rel="import" href="../iron-dropdown/iron-dropdown.html">
-<link rel="import" href="../neon-animation/animations/fade-in-animation.html">
-<link rel="import" href="../neon-animation/animations/fade-out-animation.html">
 <link rel="import" href="../paper-styles/default-theme.html">
 <link rel="import" href="../paper-styles/shadow.html">
-<link rel="import" href="paper-menu-button-animations.html">
 
 <!--
 Material design: [Dropdown buttons](https://www.google.com/design/spec/components/buttons.html#buttons-dropdown-buttons)
@@ -79,34 +76,173 @@ Custom property | Description | Default
         @apply --paper-menu-button-disabled;
       }
 
+      #trigger {
+        cursor: pointer;
+      }
+
       iron-dropdown {
+        border-radius: 2px;
+        @apply --shadow-elevation-2dp;
         @apply --paper-menu-button-dropdown;
       }
 
       .dropdown-content {
-        @apply --shadow-elevation-2dp;
-
+        /* Inherits from iron-dropdown, so inverse animation can work as expected. */
+        transform-origin: inherit;
         position: relative;
-        border-radius: 2px;
         background-color: var(--paper-menu-button-dropdown-background, var(--primary-background-color));
 
         @apply --paper-menu-button-content;
       }
-
-      :host([vertical-align="top"]) .dropdown-content {
-        margin-bottom: 20px;
-        margin-top: -10px;
-        top: 10px;
+      
+      .animating,
+      .animating > .dropdown-content {
+        overflow: hidden;
+        will-change: transform;
+        contain: content;
+        animation-fill-mode: both;
+        animation-timing-function: step-end;
       }
 
-      :host([vertical-align="bottom"]) .dropdown-content {
-        bottom: 10px;
-        margin-bottom: -10px;
-        margin-top: 20px;
+      .animating {
+        animation-name: expand-animation;
       }
 
-      #trigger {
-        cursor: pointer;
+      .animating > .dropdown-content {
+        animation-name: expand-animationInverse;
+      }
+
+      .entry-animation,
+      .entry-animation > .dropdown-content {
+        animation-delay: 100ms;
+        animation-duration: 275ms;
+      }
+
+      .exit-animation,
+      .exit-animation > .dropdown-content {
+        animation-duration: 200ms;
+        animation-direction: reverse;
+      }
+
+      @keyframes expand-animation {
+        0% {
+          opacity: 0;
+          transform: scale(0.7, 0.5);
+        }
+        6.25% {
+          opacity: 0.09;
+          transform: scale(0.75669, 0.59448);
+        }
+        12.5% {
+          opacity: 0.17;
+          transform: scale(0.80741, 0.67902);
+        }
+        18.75% {
+          opacity: 0.27;
+          transform: scale(0.85146, 0.75243);
+        }
+        25% {
+          opacity: 0.36;
+          transform: scale(0.88846, 0.8141);
+        }
+        31.25% {
+          opacity: 0.25;
+          transform: scale(0.91851, 0.86418);
+        }
+        37.5% {
+          opacity: 0.5;
+          transform: scale(0.9421, 0.90351);
+        }
+        43.75% {
+          opacity: 0.58;
+          transform: scale(0.96006, 0.93343);
+        }
+        50% {
+          opacity: 0.67;
+          transform: scale(0.97333, 0.95555);
+        }
+        56.25% {
+          opacity: 0.75;
+          transform: scale(0.98285, 0.97142);
+        }
+        62.5% {
+          opacity: 0.83;
+          transform: scale(0.98949, 0.98248);
+        }
+        68.75% {
+          opacity: 0.82;
+          transform: scale(0.99395, 0.98992);
+        }
+        75% {
+          opacity: 1;
+          transform: scale(0.99682, 0.9947);
+        }
+        81.25% {
+          transform: scale(0.99854, 0.99757);
+        }
+        87.5% {
+          transform: scale(0.99948, 0.99913);
+        }
+        93.75% {
+          transform: scale(0.9999, 0.99983);
+        }
+        100% {
+          transform: scale(1, 1);
+        }
+      }
+
+      @keyframes expand-animationInverse {
+        0% {
+          transform: scale(1.42857, 2);
+        }
+        6.25% {
+          transform: scale(1.32155, 1.68214);
+        }
+        12.5% {
+          transform: scale(1.23853, 1.47271);
+        }
+        18.75% {
+          transform: scale(1.17445, 1.32903);
+        }
+        25% {
+          transform: scale(1.12554, 1.22835);
+        }
+        31.25% {
+          transform: scale(1.08872, 1.15717);
+        }
+        37.5% {
+          transform: scale(1.06146, 1.10679);
+        }
+        43.75% {
+          transform: scale(1.0416, 1.07132);
+        }
+        50% {
+          transform: scale(1.0274, 1.04652);
+        }
+        56.25% {
+          transform: scale(1.01745, 1.02942);
+        }
+        62.5% {
+          transform: scale(1.01062, 1.01783);
+        }
+        68.75% {
+          transform: scale(1.00609, 1.01018);
+        }
+        75% {
+          transform: scale(1.00319, 1.00533);
+        }
+        81.25% {
+          transform: scale(1.00146, 1.00244);
+        }
+        87.5% {
+          transform: scale(1.00052, 1.00087);
+        }
+        93.75% {
+          transform: scale(1.0001, 1.00017);
+        }
+        100% {
+          transform: scale(1, 1);
+        }
       }
     </style>
 
@@ -123,8 +259,8 @@ Custom property | Description | Default
       horizontal-offset="[[horizontalOffset]]"
       vertical-offset="[[verticalOffset]]"
       no-overlap="[[noOverlap]]"
-      open-animation-config="[[openAnimationConfig]]"
-      close-animation-config="[[closeAnimationConfig]]"
+      entry-animation="entry-animation"
+      exit-animation="exit-animation"
       no-animations="[[noAnimations]]"
       focus-target="[[_dropdownContent]]"
       allow-outside-scroll="[[allowOutsideScroll]]"
@@ -264,13 +400,15 @@ Custom property | Description | Default
           },
 
           /**
-           * An animation config. If provided, this will be used to animate the
-           * opening of the dropdown.
+           * Deprecated, setting it won't have effects on the animation.
+           * `iron-dropdown` doesn't depend anymore on `neon-animation`, and this property is kept
+           * here to not break bindings.
+           * @deprecated
            */
           openAnimationConfig: {
             type: Object,
             value: function() {
-              return [{
+              var defaultValue = [{
                 name: 'fade-in-animation',
                 timing: {
                   delay: 100,
@@ -291,17 +429,22 @@ Custom property | Description | Default
                   easing: config.ANIMATION_CUBIC_BEZIER
                 }
               }];
+              // HACK: Mark it so we know if to warn or not on ready.
+              defaultValue.__default = true;
+              return defaultValue;
             }
           },
 
           /**
-           * An animation config. If provided, this will be used to animate the
-           * closing of the dropdown.
+           * Deprecated, setting it won't have effects on the animation.
+           * `iron-dropdown` doesn't depend anymore on `neon-animation`, and this property is kept
+           * here to not break bindings.
+           * @deprecated
            */
           closeAnimationConfig: {
             type: Object,
             value: function() {
-              return [{
+              var defaultValue = [{
                 name: 'fade-out-animation',
                 timing: {
                   duration: 150
@@ -320,6 +463,9 @@ Custom property | Description | Default
                   easing: 'ease-in'
                 }
               }];
+              // HACK: Mark it so we know if to warn or not on ready.
+              defaultValue.__default = true;
+              return defaultValue;
             }
           },
 
@@ -345,6 +491,7 @@ Custom property | Description | Default
           /**
            * This is the element intended to be bound as the focus target
            * for the `iron-dropdown` contained by `paper-menu-button`.
+           * @private
            */
           _dropdownContent: {
             type: Object
@@ -371,6 +518,14 @@ Custom property | Description | Default
             if (nodes[i].nodeType === Node.ELEMENT_NODE) {
               return nodes[i];
             }
+          }
+        },
+
+        ready: function() {
+          if ((this.openAnimationConfig && !this.openAnimationConfig.__default) ||
+              (this.closeAnimationConfig && !this.closeAnimationConfig.__default)) {
+            console.warn('Configuring animations through openAnimationConfig ' +
+              'or closeAnimationConfig is no longer supported.');
           }
         },
 
@@ -410,6 +565,7 @@ Custom property | Description | Default
          *
          * @param {CustomEvent} event A CustomEvent instance with type
          * set to `"iron-select"`.
+         * @private
          */
         _onIronSelect: function(event) {
           if (!this.ignoreSelect) {
@@ -422,6 +578,7 @@ Custom property | Description | Default
          * `closeOnActivate` is true.
          *
          * @param {CustomEvent} event A CustomEvent of type 'iron-activate'.
+         * @private
          */
         _onIronActivate: function(event) {
           if (this.closeOnActivate) {
@@ -435,6 +592,7 @@ Custom property | Description | Default
          *
          * @param {boolean} opened True if the dropdown is opened, otherwise false.
          * @param {boolean} oldOpened The previous value of `opened`.
+         * @private
          */
         _openedChanged: function(opened, oldOpened) {
           if (opened) {
@@ -455,6 +613,7 @@ Custom property | Description | Default
          * dropdown.
          *
          * @param {boolean} disabled True if disabled, otherwise false.
+         * @private
          */
         _disabledChanged: function(disabled) {
           Polymer.IronControlState._disabledChanged.apply(this, arguments);
@@ -463,6 +622,9 @@ Custom property | Description | Default
           }
         },
 
+        /**
+         * @private
+         */
         __onIronOverlayCanceled: function(event) {
           var uiEvent = event.detail;
           var target = Polymer.dom(uiEvent).rootTarget;

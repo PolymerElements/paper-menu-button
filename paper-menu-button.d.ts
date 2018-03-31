@@ -12,11 +12,8 @@
 /// <reference path="../iron-a11y-keys-behavior/iron-a11y-keys-behavior.d.ts" />
 /// <reference path="../iron-behaviors/iron-control-state.d.ts" />
 /// <reference path="../iron-dropdown/iron-dropdown.d.ts" />
-/// <reference path="../neon-animation/animations/fade-in-animation.d.ts" />
-/// <reference path="../neon-animation/animations/fade-out-animation.d.ts" />
 /// <reference path="../paper-styles/default-theme.d.ts" />
 /// <reference path="../paper-styles/shadow.d.ts" />
-/// <reference path="paper-menu-button-animations.d.ts" />
 
 /**
  * Material design: [Dropdown buttons](https://www.google.com/design/spec/components/buttons.html#buttons-dropdown-buttons)
@@ -122,14 +119,16 @@ declare class PaperMenuButton extends Polymer.Element {
   closeOnActivate: boolean|null|undefined;
 
   /**
-   * An animation config. If provided, this will be used to animate the
-   * opening of the dropdown.
+   * Deprecated, setting it won't have effects on the animation.
+   * `iron-dropdown` doesn't depend anymore on `neon-animation`, and this property is kept
+   * here to not break bindings.
    */
   openAnimationConfig: object|null|undefined;
 
   /**
-   * An animation config. If provided, this will be used to animate the
-   * closing of the dropdown.
+   * Deprecated, setting it won't have effects on the animation.
+   * `iron-dropdown` doesn't depend anymore on `neon-animation`, and this property is kept
+   * here to not break bindings.
    */
   closeAnimationConfig: object|null|undefined;
 
@@ -145,12 +144,6 @@ declare class PaperMenuButton extends Polymer.Element {
    * Whether focus should be restored to the button when the menu closes.
    */
   restoreFocusOnClose: boolean|null|undefined;
-
-  /**
-   * This is the element intended to be bound as the focus target
-   * for the `iron-dropdown` contained by `paper-menu-button`.
-   */
-  _dropdownContent: object|null|undefined;
   hostAttributes: object|null;
 
   /**
@@ -158,14 +151,7 @@ declare class PaperMenuButton extends Polymer.Element {
    *          
    */
   readonly contentElement: any;
-
-  /**
-   * If the dropdown is open when disabled becomes true, close the
-   * dropdown.
-   *
-   * @param disabled True if disabled, otherwise false.
-   */
-  _disabledChanged(disabled: boolean): void;
+  ready(): void;
 
   /**
    * Toggles the drowpdown content between opened and closed.
@@ -182,32 +168,6 @@ declare class PaperMenuButton extends Polymer.Element {
    * Hide the dropdown content.
    */
   close(): void;
-
-  /**
-   * When an `iron-select` event is received, the dropdown should
-   * automatically close on the assumption that a value has been chosen.
-   *
-   * @param event A CustomEvent instance with type
-   * set to `"iron-select"`.
-   */
-  _onIronSelect(event: CustomEvent|null): void;
-
-  /**
-   * Closes the dropdown when an `iron-activate` event is received if
-   * `closeOnActivate` is true.
-   *
-   * @param event A CustomEvent of type 'iron-activate'.
-   */
-  _onIronActivate(event: CustomEvent|null): void;
-
-  /**
-   * When the dropdown opens, the `paper-menu-button` fires `paper-open`.
-   * When the dropdown closes, the `paper-menu-button` fires `paper-close`.
-   *
-   * @param opened True if the dropdown is opened, otherwise false.
-   * @param oldOpened The previous value of `opened`.
-   */
-  _openedChanged(opened: boolean, oldOpened: boolean): void;
 }
 
 interface PaperMenuButton extends Polymer.IronA11yKeysBehavior, Polymer.IronControlState {
