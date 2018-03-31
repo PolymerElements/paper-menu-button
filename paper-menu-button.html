@@ -408,7 +408,7 @@ Custom property | Description | Default
           openAnimationConfig: {
             type: Object,
             value: function() {
-              var config = [{
+              var defaultValue = [{
                 name: 'fade-in-animation',
                 timing: {
                   delay: 100,
@@ -430,8 +430,8 @@ Custom property | Description | Default
                 }
               }];
               // HACK: Mark it so we know if to warn or not on ready.
-              config.__default = true;
-              return config;
+              defaultValue.__default = true;
+              return defaultValue;
             }
           },
 
@@ -444,7 +444,7 @@ Custom property | Description | Default
           closeAnimationConfig: {
             type: Object,
             value: function() {
-              var config = [{
+              var defaultValue = [{
                 name: 'fade-out-animation',
                 timing: {
                   duration: 150
@@ -464,8 +464,8 @@ Custom property | Description | Default
                 }
               }];
               // HACK: Mark it so we know if to warn or not on ready.
-              config.__default = true;
-              return config;
+              defaultValue.__default = true;
+              return defaultValue;
             }
           },
 
