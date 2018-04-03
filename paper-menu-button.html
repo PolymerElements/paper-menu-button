@@ -145,7 +145,7 @@ Custom property | Description | Default
         MAX_ANIMATION_TIME_MS: 400
       };
 
-      var PaperMenuButton = Polymer({
+      Polymer.PaperMenuButton = Polymer({
         is: 'paper-menu-button',
 
         /**
@@ -476,10 +476,9 @@ Custom property | Description | Default
       });
 
       Object.keys(config).forEach(function (key) {
-        PaperMenuButton[key] = config[key];
+        Polymer.PaperMenuButton[key] = config[key];
       });
 
-      Polymer.PaperMenuButton = PaperMenuButton;
     })();
   </script>
 </dom-module>
