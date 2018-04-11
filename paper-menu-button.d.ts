@@ -157,7 +157,7 @@ declare namespace Polymer {
 
     /**
      * The content element that is contained by the menu button, if any.
-     *          
+     *        
      */
     readonly contentElement: any;
 
