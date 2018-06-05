@@ -1,7 +1,5 @@
 [![Build status](https://travis-ci.org/PolymerElements/paper-menu-button.svg?branch=master)](https://travis-ci.org/PolymerElements/paper-menu-button)
-
-_[Demo and API docs](https://elements.polymer-project.org/elements/paper-menu-button)_
-
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/PolymerElements/paper-menu-button)
 
 ## &lt;paper-menu-button&gt;
 
