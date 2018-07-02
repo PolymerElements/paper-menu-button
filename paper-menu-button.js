@@ -7,6 +7,25 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 */
+import '@polymer/polymer/polymer-legacy.js';
+
+import { IronA11yKeysBehavior } from '@polymer/iron-a11y-keys-behavior/iron-a11y-keys-behavior.js';
+import { IronControlState } from '@polymer/iron-behaviors/iron-control-state.js';
+import '@polymer/iron-dropdown/iron-dropdown.js';
+import '@polymer/neon-animation/animations/fade-in-animation.js';
+import '@polymer/neon-animation/animations/fade-out-animation.js';
+import '@polymer/paper-styles/default-theme.js';
+import '@polymer/paper-styles/shadow.js';
+import './paper-menu-button-animations.js';
+import { Polymer as Polymer$0 } from '@polymer/polymer/lib/legacy/polymer-fn.js';
+import { html } from '@polymer/polymer/lib/utils/html-tag.js';
+import { dom } from '@polymer/polymer/lib/legacy/polymer.dom.js';
+
+var config = {
+  ANIMATION_CUBIC_BEZIER: 'cubic-bezier(.3,.95,.5,1)',
+  MAX_ANIMATION_TIME_MS: 400
+};
+
 /**
 Material design: [Dropdown buttons](https://www.google.com/design/spec/components/buttons.html#buttons-dropdown-buttons)
 
@@ -48,30 +67,6 @@ Custom property | Description | Default
 @hero hero.svg
 @demo demo/index.html
 */
-/*
-  FIXME(polymer-modulizer): the above comments were extracted
-  from HTML and may be out of place here. Review them and
-  then delete this comment!
-*/
-import '@polymer/polymer/polymer-legacy.js';
-
-import { IronA11yKeysBehavior } from '@polymer/iron-a11y-keys-behavior/iron-a11y-keys-behavior.js';
-import { IronControlState } from '@polymer/iron-behaviors/iron-control-state.js';
-import '@polymer/iron-dropdown/iron-dropdown.js';
-import '@polymer/neon-animation/animations/fade-in-animation.js';
-import '@polymer/neon-animation/animations/fade-out-animation.js';
-import '@polymer/paper-styles/default-theme.js';
-import '@polymer/paper-styles/shadow.js';
-import './paper-menu-button-animations.js';
-import { Polymer as Polymer$0 } from '@polymer/polymer/lib/legacy/polymer-fn.js';
-import { html } from '@polymer/polymer/lib/utils/html-tag.js';
-import { dom } from '@polymer/polymer/lib/legacy/polymer.dom.js';
-
-var config = {
-  ANIMATION_CUBIC_BEZIER: 'cubic-bezier(.3,.95,.5,1)',
-  MAX_ANIMATION_TIME_MS: 400
-};
-
 export const PaperMenuButton = Polymer$0({
   _template: html`
     <style>
