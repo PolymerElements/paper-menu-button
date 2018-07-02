@@ -1,25 +1,26 @@
 /**
 @license
 Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+This code may only be used under the BSD style license found at
+http://polymer.github.io/LICENSE.txt The complete set of authors may be found at
+http://polymer.github.io/AUTHORS.txt The complete set of contributors may be
+found at http://polymer.github.io/CONTRIBUTORS.txt Code distributed by Google as
+part of the polymer project is also subject to an additional IP rights grant
+found at http://polymer.github.io/PATENTS.txt
 */
 import '@polymer/polymer/polymer-legacy.js';
-
-import { IronA11yKeysBehavior } from '@polymer/iron-a11y-keys-behavior/iron-a11y-keys-behavior.js';
-import { IronControlState } from '@polymer/iron-behaviors/iron-control-state.js';
 import '@polymer/iron-dropdown/iron-dropdown.js';
 import '@polymer/neon-animation/animations/fade-in-animation.js';
 import '@polymer/neon-animation/animations/fade-out-animation.js';
 import '@polymer/paper-styles/default-theme.js';
 import '@polymer/paper-styles/shadow.js';
 import './paper-menu-button-animations.js';
-import { Polymer as Polymer$0 } from '@polymer/polymer/lib/legacy/polymer-fn.js';
-import { html } from '@polymer/polymer/lib/utils/html-tag.js';
-import { dom } from '@polymer/polymer/lib/legacy/polymer.dom.js';
+
+import {IronA11yKeysBehavior} from '@polymer/iron-a11y-keys-behavior/iron-a11y-keys-behavior.js';
+import {IronControlState} from '@polymer/iron-behaviors/iron-control-state.js';
+import {Polymer as Polymer$0} from '@polymer/polymer/lib/legacy/polymer-fn.js';
+import {dom} from '@polymer/polymer/lib/legacy/polymer.dom.js';
+import {html} from '@polymer/polymer/lib/utils/html-tag.js';
 
 var config = {
   ANIMATION_CUBIC_BEZIER: 'cubic-bezier(.3,.95,.5,1)',
@@ -27,15 +28,16 @@ var config = {
 };
 
 /**
-Material design: [Dropdown buttons](https://www.google.com/design/spec/components/buttons.html#buttons-dropdown-buttons)
+Material design: [Dropdown
+buttons](https://www.google.com/design/spec/components/buttons.html#buttons-dropdown-buttons)
 
 `paper-menu-button` allows one to compose a designated "trigger" element with
 another element that represents "content", to create a dropdown menu that
 displays the "content" when the "trigger" is clicked.
 
 The child element assigned to the `dropdown-trigger` slot will be used as the
-"trigger" element. The child element assigned to the `dropdown-content` slot will be
-used as the "content" element.
+"trigger" element. The child element assigned to the `dropdown-content` slot
+will be used as the "content" element.
 
 The `paper-menu-button` is sensitive to its content's `iron-select` events. If
 the "content" element triggers an `iron-select` event, the `paper-menu-button`
@@ -44,9 +46,9 @@ will close automatically.
 Example:
 
     <paper-menu-button>
-      <paper-icon-button icon="menu" slot="dropdown-trigger"></paper-icon-button>
-      <paper-listbox slot="dropdown-content">
-        <paper-item>Share</paper-item>
+      <paper-icon-button icon="menu"
+slot="dropdown-trigger"></paper-icon-button> <paper-listbox
+slot="dropdown-content"> <paper-item>Share</paper-item>
         <paper-item>Settings</paper-item>
         <paper-item>Help</paper-item>
       </paper-listbox>
@@ -58,11 +60,15 @@ The following custom properties and mixins are also available for styling:
 
 Custom property | Description | Default
 ----------------|-------------|----------
-`--paper-menu-button-dropdown-background` | Background color of the paper-menu-button dropdown | `--primary-background-color`
+`--paper-menu-button-dropdown-background` | Background color of the
+paper-menu-button dropdown | `--primary-background-color`
 `--paper-menu-button` | Mixin applied to the paper-menu-button | `{}`
-`--paper-menu-button-disabled` | Mixin applied to the paper-menu-button when disabled | `{}`
-`--paper-menu-button-dropdown` | Mixin applied to the paper-menu-button dropdown | `{}`
-`--paper-menu-button-content` | Mixin applied to the paper-menu-button content | `{}`
+`--paper-menu-button-disabled` | Mixin applied to the paper-menu-button when
+disabled | `{}`
+`--paper-menu-button-dropdown` | Mixin applied to the paper-menu-button dropdown
+| `{}`
+`--paper-menu-button-content` | Mixin applied to the paper-menu-button content |
+`{}`
 
 @hero hero.svg
 @demo demo/index.html
