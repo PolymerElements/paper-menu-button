@@ -153,11 +153,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         expect(menuButton.opened).to.be.equal(false);
         expect(otherButton.opened).to.be.equal(false);
 
-        /*
-          NOTE: iron-overlay-behavior adds listeners asynchronously when the
-          overlay opens, so we need to wait for this event which is a
-          more-explicit signal that tells us that the overlay is really opened.
-         */
+        // NOTE: iron-overlay-behavior adds listeners asynchronously when the
+        // overlay opens, so we need to wait for this event which is a
+        // more-explicit signal that tells us that the overlay is really opened.
         menuButton.addEventListener('iron-overlay-opened', function() {
           expect(menuButton.opened).to.be.equal(true);
           expect(otherButton.opened).to.be.equal(false);
