@@ -18,7 +18,7 @@ import './paper-menu-button-animations.js';
 
 import {IronA11yKeysBehavior} from '@polymer/iron-a11y-keys-behavior/iron-a11y-keys-behavior.js';
 import {IronControlState} from '@polymer/iron-behaviors/iron-control-state.js';
-import {Polymer as Polymer$0} from '@polymer/polymer/lib/legacy/polymer-fn.js';
+import {Polymer} from '@polymer/polymer/lib/legacy/polymer-fn.js';
 import {dom} from '@polymer/polymer/lib/legacy/polymer.dom.js';
 import {html} from '@polymer/polymer/lib/utils/html-tag.js';
 
@@ -60,20 +60,16 @@ The following custom properties and mixins are also available for styling:
 
 Custom property | Description | Default
 ----------------|-------------|----------
-`--paper-menu-button-dropdown-background` | Background color of the
-paper-menu-button dropdown | `--primary-background-color`
+`--paper-menu-button-dropdown-background` | Background color of the paper-menu-button dropdown | `--primary-background-color`
 `--paper-menu-button` | Mixin applied to the paper-menu-button | `{}`
-`--paper-menu-button-disabled` | Mixin applied to the paper-menu-button when
-disabled | `{}`
-`--paper-menu-button-dropdown` | Mixin applied to the paper-menu-button dropdown
-| `{}`
-`--paper-menu-button-content` | Mixin applied to the paper-menu-button content |
-`{}`
+`--paper-menu-button-disabled` | Mixin applied to the paper-menu-button when disabled | `{}`
+`--paper-menu-button-dropdown` | Mixin applied to the paper-menu-button dropdown | `{}`
+`--paper-menu-button-content` | Mixin applied to the paper-menu-button content | `{}`
 
 @hero hero.svg
 @demo demo/index.html
 */
-export const PaperMenuButton = Polymer$0({
+export const PaperMenuButton = Polymer({
   _template: html`
     <style>
       :host {
