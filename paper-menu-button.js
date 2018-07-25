@@ -304,7 +304,7 @@ export const PaperMenuButton = Polymer({
   },
 
   /**
-   * Toggles the drowpdown content between opened and closed.
+   * Toggles the dropdown content between opened and closed.
    */
   toggle: function() {
     if (this.opened) {
