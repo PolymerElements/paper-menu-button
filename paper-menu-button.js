@@ -276,7 +276,7 @@ export const PaperMenuButton = Polymer({
     /**
      * Whether focus should be restored to the button when the menu closes.
      */
-    restoreFocusOnClose: {type: Boolean, value: true},
+    restoreFocusOnClose: {type: Boolean, value: false},
 
     /**
      * This is the element intended to be bound as the focus target
