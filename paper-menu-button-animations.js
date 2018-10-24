@@ -14,6 +14,7 @@ import {NeonAnimationBehavior} from '@polymer/neon-animation/neon-animation-beha
 import {Polymer} from '@polymer/polymer/lib/legacy/polymer-fn.js';
 Polymer({
   is: 'paper-menu-grow-height-animation',
+  _template: null,
 
   behaviors: [NeonAnimationBehavior],
 
