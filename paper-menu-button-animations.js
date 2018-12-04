@@ -34,6 +34,7 @@ Polymer({
 
 Polymer({
   is: 'paper-menu-grow-width-animation',
+  _template: null,
 
   behaviors: [NeonAnimationBehavior],
 
@@ -53,6 +54,7 @@ Polymer({
 
 Polymer({
   is: 'paper-menu-shrink-width-animation',
+  _template: null,
 
   behaviors: [NeonAnimationBehavior],
 
@@ -72,6 +74,7 @@ Polymer({
 
 Polymer({
   is: 'paper-menu-shrink-height-animation',
+  _template: null,
 
   behaviors: [NeonAnimationBehavior],
 
