@@ -66,10 +66,10 @@ Custom property | Description | Default
 `--paper-menu-button-dropdown` | Mixin applied to the paper-menu-button dropdown | `{}`
 `--paper-menu-button-content` | Mixin applied to the paper-menu-button content | `{}`
 
-@hero hero.svg
 @demo demo/index.html
 */
 export const PaperMenuButton = Polymer({
+  /** @override */
   _template: html`
     <style>
       :host {
