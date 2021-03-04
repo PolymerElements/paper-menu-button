@@ -123,7 +123,7 @@ export const PaperMenuButton = Polymer({
       <slot name="dropdown-trigger"></slot>
     </div>
 
-    <iron-dropdown id="dropdown" opened="{{opened}}" horizontal-align="[[horizontalAlign]]" vertical-align="[[verticalAlign]]" dynamic-align="[[dynamicAlign]]" horizontal-offset="[[horizontalOffset]]" vertical-offset="[[verticalOffset]]" no-overlap="[[noOverlap]]" open-animation-config="[[openAnimationConfig]]" close-animation-config="[[closeAnimationConfig]]" no-animations="[[noAnimations]]" focus-target="[[_dropdownContent]]" allow-outside-scroll="[[allowOutsideScroll]]" restore-focus-on-close="[[restoreFocusOnClose]]" on-iron-overlay-canceled="__onIronOverlayCanceled">
+    <iron-dropdown id="dropdown" opened="{{opened}}" horizontal-align="[[horizontalAlign]]" vertical-align="[[verticalAlign]]" dynamic-align="[[dynamicAlign]]" horizontal-offset="[[horizontalOffset]]" vertical-offset="[[verticalOffset]]" no-overlap="[[noOverlap]]" open-animation-config="[[openAnimationConfig]]" close-animation-config="[[closeAnimationConfig]]" no-animations="[[noAnimations]]" focus-target="[[_dropdownContent]]" allow-outside-scroll="[[allowOutsideScroll]]" restore-focus-on-close="[[restoreFocusOnClose]]" on-iron-overlay-canceled="__onIronOverlayCanceled" expand-sizing-target-for-scrollbars="[[expandSizingTargetForScrollbars]]">
       <div slot="dropdown-content" class="dropdown-content">
         <slot id="content" name="dropdown-content"></slot>
       </div>
@@ -277,6 +277,13 @@ export const PaperMenuButton = Polymer({
      * Whether focus should be restored to the button when the menu closes.
      */
     restoreFocusOnClose: {type: Boolean, value: true},
+
+    /**
+     * If true and scrollbars are added to the dropdown after it is positioned,
+     * the size of the added scrollbars will be added to its `maxWidth` and
+     * `maxHeight`.
+     */
+    expandSizingTargetForScrollbars: {type: Boolean, value: false},
 
     /**
      * This is the element intended to be bound as the focus target
