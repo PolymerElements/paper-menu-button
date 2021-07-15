@@ -304,7 +304,13 @@ Custom property | Description | Default
       hostAttributes: {role: 'group', 'aria-haspopup': 'true'},
 
       listeners:
-          {'iron-activate': '_onIronActivate', 'iron-select': '_onIronSelect'},
+          {
+            'iron-activate': '_onIronActivate',
+            'iron-select': '_onIronSelect',
+            'iron-overlay-opened': '__stopEventPropagation',
+            'iron-overlay-closed': '__stopEventPropagation',
+            'iron-overlay-canceled': '__stopEventPropagation'
+          },
 
       /**
        * The content element that is contained by the menu button, if any.
@@ -416,6 +422,10 @@ Custom property | Description | Default
         if (path.indexOf(trigger) > -1) {
           event.preventDefault();
         }
+      },
+
+      __stopEventPropagation: function(event) {
+          event.stopPropagation();
       }
     });
 
